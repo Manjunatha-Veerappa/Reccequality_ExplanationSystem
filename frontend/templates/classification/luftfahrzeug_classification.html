@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% include 'includes/_luftfahrzeugnavbar.html' %}
+
+
+   <div class="table-responsive" style="overflow-x:auto; margin-left: 10px; margin-right: 10px;">
+        <div id="classification_table"> </div>
+   </div>
+
+
+    <script src="/static/classification_js_tbl_load/luftfahrzeug_classification_tbl_load.js"></script>
+
+
+{% endblock %}
