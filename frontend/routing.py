@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 from flask_wtf import Form
 from wtforms import IntegerField, SelectField, SubmitField, validators, ValidationError, StringField, PasswordField
+from backend.classifier_rules.schiffe_classifier_rules import SchiffeClassifierRules
+
 app = Flask(__name__)
 app.secret_key = 'development key'
 
@@ -28,6 +30,8 @@ def luftfahrzeug():
 @app.route("/schiffe/classification")
 def schiffe_classification():
     title = 'schiffe-classification'
+    classifier = SchiffeClassifierRules()
+    classifier.schiffe_classifier_rules()
     return render_template("classification/schiffe_classification.html", title=title)
 
 @app.route("/landfahrzeug/classification")
