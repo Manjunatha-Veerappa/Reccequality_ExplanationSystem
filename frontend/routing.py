@@ -16,12 +16,12 @@ def schiffe():
     return render_template("schiffe.html", title=title)
 
 @app.route("/landfahrzeug")
-def land():
+def landfahrzeug():
     title = 'landfahrzeug'
     return render_template("landfahrzeug.html", title=title)
 
 @app.route("/luftfahrzeug")
-def aeroplane():
+def luftfahrzeug():
     title = 'luftfahrzeug'
     return render_template("luftfahrzeug.html", title=title)
 
@@ -31,22 +31,22 @@ def schiffe_classification():
     return render_template("classification/schiffe_classification.html", title=title)
 
 @app.route("/landfahrzeug/classification")
-def land_classification():
+def landfahrzeug_classification():
     title = 'landfahrzeug-classification'
     return render_template("classification/landfahrzeug_classification.html", title=title)
 
 @app.route("/landfahrzeug/explanation")
-def land_explanation():
+def landfahrzeug_explanation():
     title = 'landfahrzeug-explanation'
     return render_template("explanation/landfahrzeug_explanation.html", title=title)
 
 @app.route("/luftfahrzeug/classification")
-def aeroplane_classification():
+def luftfahrzeug_classification():
     title = 'luftfahrzeug-classification'
     return render_template("classification/luftfahrzeug_classification.html", title=title)
 
 @app.route("/luftfahrzeug/explanation")
-def aeroplane_explanation():
+def luftfahrzeug_explanation():
     title = 'luftfahrzeug-explanation'
     return render_template("explanation/luftfahrzeug_explanation.html", title=title)
 
