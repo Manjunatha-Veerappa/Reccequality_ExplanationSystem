@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ExplanationSystemReccemanNum/.idea/ExplanationSystemReccemanNum.iml" filepath="$PROJECT_DIR$/../ExplanationSystemReccemanNum/.idea/ExplanationSystemReccemanNum.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Flask.iml" filepath="$PROJECT_DIR$/.idea/Flask.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Reccequality_ExplanationSystem.iml" filepath="$PROJECT_DIR$/.idea/Reccequality_ExplanationSystem.iml" />
     </modules>
