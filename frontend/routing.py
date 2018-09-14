@@ -33,6 +33,7 @@ def luftfahrzeug():
 def schiffe_classification():
     title = 'schiffe-classification'
     classifier = SchiffeClassifierRules()
+    classifier.random_forest()
     return render_template("classification/schiffe_classification.html", title=title)
 
 @app.route("/landfahrzeug/classification")

@@ -1,4 +1,7 @@
 import csv
+import numpy
+import sklearn
+from backend.random_forest.random_forest_classifier import RandomForest
 
 class SchiffeClassifierRules(object):
 
@@ -77,3 +80,39 @@ class SchiffeClassifierRules(object):
                     row[498], row[2589], row[3318], row[2177], row[2878], row[2815], row[348], row[655], row[3893], result1]
 
                     writer.writerow(list)
+
+
+    def random_forest(self):
+        count = 0
+        with open("static/classification_files/SchiffeClassificationCategorical.csv", 'r') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+            included_cols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19]
+            data = []
+            result = []
+            for row in reader:
+                if(count == 0):
+                    count = count + 1
+                    continue
+                else:
+                    result.append(int(row[20]))
+                    content = (list(float(row[i]) for i in included_cols))
+                    data.append(content)
+
+            data = numpy.array(data)
+            result = numpy.array(result)
+
+            classifier = RandomForest()
+            train, test, labels_train, labels_test = classifier.split_dataset(data, result, 0.8)
+            train = numpy.array(train)
+
+            trained_model = classifier.random_forest_classifier(train, labels_train)
+
+            predictions = trained_model.predict(test)
+
+            for i in range(0, 10):
+                print("Actual outcome :: {} and Predicted outcome :: {}".format(list(labels_test)[i], predictions[i]))
+
+            print("Train Accuracy :: ", sklearn.metrics.accuracy_score(labels_train, trained_model.predict(train)))
+            print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(labels_test, predictions))
+
+
