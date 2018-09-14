@@ -3,12 +3,10 @@ import csv
 class SchiffeClassifierRules(object):
 
     def __init__(self):
-        print("Schiffe classifier class")
+        self.schiffe_classifier_rules()
 
     def schiffe_classifier_rules(self):
-
         with open("static/dataset/Schiffedata.csv", 'r') as csvfile:
-            print("schiffe data has started reading")
             reader = csv.reader(csvfile, delimiter=',')
             writer = csv.writer(open("static/classification_files/SchiffeClassificationCategorical.csv", "w"))
             data = []

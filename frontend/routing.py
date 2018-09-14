@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import IntegerField, SelectField, SubmitField, validators, ValidationError, StringField, PasswordField
 from backend.classifier_rules.schiffe_classifier_rules import SchiffeClassifierRules
 from backend.classifier_rules.landfahrzeug_classifier_rules import LandfahrzeugClassifierRules
@@ -33,14 +33,12 @@ def luftfahrzeug():
 def schiffe_classification():
     title = 'schiffe-classification'
     classifier = SchiffeClassifierRules()
-    classifier.schiffe_classifier_rules()
     return render_template("classification/schiffe_classification.html", title=title)
 
 @app.route("/landfahrzeug/classification")
 def landfahrzeug_classification():
     title = 'landfahrzeug-classification'
     classifier = LandfahrzeugClassifierRules()
-    classifier.landfahrzueg_classifier_rules()
     return render_template("classification/landfahrzeug_classification.html", title=title)
 
 @app.route("/landfahrzeug/explanation")
@@ -52,7 +50,6 @@ def landfahrzeug_explanation():
 def luftfahrzeug_classification():
     title = 'luftfahrzeug-classification'
     classifier = LuftfahrzeugClassifierRules()
-    classifier.luftfahrzueg_classifier_rules()
     return render_template("classification/luftfahrzeug_classification.html", title=title)
 
 @app.route("/luftfahrzeug/explanation")
@@ -60,7 +57,7 @@ def luftfahrzeug_explanation():
     title = 'luftfahrzeug-explanation'
     return render_template("explanation/luftfahrzeug_explanation.html", title=title)
 
-class SchiffeExplanationForm(Form):
+class SchiffeExplanationForm(FlaskForm):
     name = StringField('Name', [validators.Length(min=1, max=50)])
     username = StringField('Username', [validators.Length(min=4, max=25)])
     email = StringField('Email', [validators.Length(min=6, max=50)])

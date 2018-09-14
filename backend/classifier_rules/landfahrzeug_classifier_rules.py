@@ -3,7 +3,7 @@ import csv
 class LandfahrzeugClassifierRules(object):
 
     def __init__(self):
-        print("Landfahrzeug classifier class")
+        self.landfahrzueg_classifier_rules()
 
     def landfahrzueg_classifier_rules(self):
         with open("static/dataset/Landfahrzeugdata.csv", 'r') as csvfile:

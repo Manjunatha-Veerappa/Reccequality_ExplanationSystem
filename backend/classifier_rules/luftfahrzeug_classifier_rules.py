@@ -3,7 +3,7 @@ import csv
 class LuftfahrzeugClassifierRules(object):
 
     def __init__(self):
-        print("Luftfahrzeug classifier class")
+        self.luftfahrzueg_classifier_rules()
 
     def luftfahrzueg_classifier_rules(self):
         with open("static/dataset/Luftfahrzeugdata.csv", 'r') as csvfile:
