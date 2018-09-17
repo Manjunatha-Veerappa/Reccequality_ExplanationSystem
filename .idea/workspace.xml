@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f27fbbd-3944-45b3-85b5-6433251c91e3" name="Default Changelist" comment="random forest classifier implementation has been added">
+    <list default="true" id="9f27fbbd-3944-45b3-85b5-6433251c91e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/classifier_rules/landfahrzeug_classifier_rules.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/classifier_rules/landfahrzeug_classifier_rules.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/classifier_rules/luftfahrzeug_classifier_rules.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/classifier_rules/luftfahrzeug_classifier_rules.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/classifier_rules/schiffe_classifier_rules.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/classifier_rules/schiffe_classifier_rules.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/routing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/aeroplane.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/explanation/aeroplane_explanation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/explanation/land_explanation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/explanation/landfahrzeug_explanation.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/explanation/landfahrzeug_explanation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/explanation/luftfahrzeug_explanation.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/explanation/luftfahrzeug_explanation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/templates/explanation/schiffe_explanation.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/explanation/schiffe_explanation.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,50 +44,54 @@
     <session id="-890392342">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
+          <entry key="html" value="400" />
           <entry key="md" value="416" />
-          <entry key="py" value="1485" />
+          <entry key="py" value="2238" />
           <entry key="txt" value="236" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="HTML" value="400" />
           <entry key="Markdown" value="416" />
           <entry key="PLAIN_TEXT" value="237" />
-          <entry key="Python" value="1485" />
+          <entry key="Python" value="2238" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="13" />
-          <entry key="html" value="2" />
+          <entry key="html" value="10" />
           <entry key="md" value="1" />
-          <entry key="py" value="8" />
+          <entry key="py" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="2" />
+          <entry key="HTML" value="10" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="13" />
-          <entry key="Python" value="8" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/routing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="107">
-              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            <state relative-caret-position="317">
+              <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
               <folding>
                 <element signature="e#0#49#0" expanded="true" />
               </folding>
@@ -90,16 +100,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/templates/luftfahrzeug.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../ExplanationSystemReccemanNum/MainReccemanNum.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="1191" lean-forward="true" selection-start-line="1178" selection-start-column="12" selection-end-line="1191" />
+            <state relative-caret-position="527">
+              <caret line="901" selection-start-line="901" selection-end-line="901" />
               <folding>
+                <element signature="e#25#39#0" expanded="true" />
                 <element signature="e#601#870#0" />
                 <element signature="e#902#9365#0" />
                 <element signature="e#9418#12697#0" />
@@ -113,7 +119,6 @@
                 <element signature="e#26316#26608#0" />
                 <element signature="e#26654#33050#0" />
                 <element signature="e#33089#34786#0" />
-                <element signature="e#34831#37285#0" />
                 <element signature="e#37333#38068#0" />
                 <element signature="e#38116#41684#0" />
                 <element signature="e#38174#41684#0" />
@@ -121,6 +126,7 @@
                 <element signature="e#41737#42024#0" />
                 <element signature="e#42065#47882#0" />
                 <element signature="e#47923#49575#0" />
+                <element signature="e#49623#52384#0" />
                 <element signature="e#52427#52624#0" />
               </folding>
             </state>
@@ -128,51 +134,85 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/random_forest/random_forest_classifier.py">
+        <entry file="file://$PROJECT_DIR$/backend/classifier_rules/luftfahrzeug_classifier_rules.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="58" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/classifier_rules/schiffe_classifier_rules.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="105" column="38" lean-forward="true" selection-start-line="105" selection-start-column="38" selection-end-line="105" selection-end-column="38" />
+            <state relative-caret-position="915">
+              <caret line="131" column="67" selection-start-line="131" selection-start-column="67" selection-end-line="131" selection-end-column="67" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1536931642396" expanded="true" signature="149:150" ph="..." />
-                <marker date="1536931642396" expanded="true" signature="174:220" ph="..." />
+                <element signature="e#179#3638#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/static/classification_files/LuftfahrzeugClassificationCategorical.csv">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/backend/classifier_rules/schiffe_classifier_rules.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="557">
+              <caret line="132" column="59" selection-start-line="132" selection-start-column="30" selection-end-line="132" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1537182631303" expanded="true" signature="204:205" ph="..." />
+                <marker date="1537182631303" expanded="true" signature="229:275" ph="..." />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/static/classification_files/LandfahrzeugClassificationCategorical.csv">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/frontend/templates/explanation/schiffe_explanation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-748">
+              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../ExplanationSystemReccemanNum/SchiffeClassificationCategorical.csv">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/frontend/templates/explanation/landfahrzeug_explanation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/templates/explanation/luftfahrzeug_explanation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="76" selection-start-line="6" selection-start-column="76" selection-end-line="6" selection-end-column="76" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/classifier_rules/landfahrzeug_classifier_rules.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+            <state relative-caret-position="315">
+              <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#179#3501#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -195,12 +235,15 @@
       <list>
         <option value="$PROJECT_DIR$/frontend/testing.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/backend/classifier_rules/luftfahrzeug_classifier_rules.py" />
-        <option value="$PROJECT_DIR$/backend/classifier_rules/landfahrzeug_classifier_rules.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/frontend/routing.py" />
         <option value="$PROJECT_DIR$/backend/random_forest/random_forest_classifier.py" />
+        <option value="$PROJECT_DIR$/frontend/templates/explanation/landfahrzeug_explanation.html" />
+        <option value="$PROJECT_DIR$/frontend/templates/explanation/schiffe_explanation.html" />
+        <option value="$PROJECT_DIR$/backend/classifier_rules/landfahrzeug_classifier_rules.py" />
         <option value="$PROJECT_DIR$/backend/classifier_rules/schiffe_classifier_rules.py" />
+        <option value="$PROJECT_DIR$/backend/classifier_rules/luftfahrzeug_classifier_rules.py" />
+        <option value="$PROJECT_DIR$/frontend/templates/explanation/luftfahrzeug_explanation.html" />
+        <option value="$PROJECT_DIR$/frontend/routing.py" />
       </list>
     </option>
   </component>
@@ -231,18 +274,6 @@
             <path>
               <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="classifier_rules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="random_forest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -250,19 +281,26 @@
               <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="frontend" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="classification_files" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="explanation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
@@ -279,16 +317,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend/static/dataset" />
-      <recent name="$PROJECT_DIR$/frontend" />
-      <recent name="$PROJECT_DIR$/frontend/static" />
-      <recent name="$PROJECT_DIR$/backend/classifier_rules" />
-      <recent name="$PROJECT_DIR$/../ExplanationSystemReccemanNum" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/templates" />
       <recent name="$PROJECT_DIR$/frontend/static" />
       <recent name="$PROJECT_DIR$/backend/dataset" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/static" />
+      <recent name="$PROJECT_DIR$/frontend/static/dataset" />
+      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$/backend/classifier_rules" />
+      <recent name="$PROJECT_DIR$/../ExplanationSystemReccemanNum" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -384,7 +423,21 @@
       <option name="project" value="LOCAL" />
       <updated>1536925814633</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="random forest classifier implementation has been added">
+      <created>1536931763180</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1536931763180</updated>
+    </task>
+    <task id="LOCAL-00008" summary="random forest classifier implementation has been added">
+      <created>1536931872971</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1536931872971</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -398,19 +451,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1200" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859154" visible="true" weight="0.14609705" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859154" visible="true" weight="0.14609705" />
       <window_info id="Structure" order="1" sideWeight="0.50140846" side_tool="true" weight="0.14609705" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32986766" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27599245" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27599245" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32986766" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32986766" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.20888469" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32986766" />
       <window_info anchor="bottom" id="Python Console" order="10" />
@@ -419,17 +471,17 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49859154" visible="true" weight="0.14609705" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859154" visible="true" weight="0.14609705" />
       <window_info id="Structure" order="1" sideWeight="0.50140846" side_tool="true" weight="0.14609705" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289225" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32986766" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27599245" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32986766" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32986766" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.20888469" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32986766" />
       <window_info anchor="bottom" id="Python Console" order="10" />
@@ -437,6 +489,32 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -448,60 +526,27 @@
     <MESSAGE value="Luftfahrzeug Classifier Rules has been added" />
     <MESSAGE value="minor changes in each domain" />
     <MESSAGE value="updated readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated readme" />
+    <MESSAGE value="random forest classifier implementation has been added" />
+    <option name="LAST_COMMIT_MESSAGE" value="random forest classifier implementation has been added" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/testing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/testing.py" />
+    <entry file="file://$PROJECT_DIR$/test.py" />
     <entry file="file://$PROJECT_DIR$/../ExplanationSystemReccemanNum/Schiffedata.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/static/dataset/Schiffedata.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/classifier_rules/Schiffedata.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/static/Schiffedata.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/Schiffedata.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/SchiffeClassificationCategorical.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/classifier_rules/Schiffedata.csv" />
+    <entry file="file://$PROJECT_DIR$/frontend/static/Schiffedata.csv" />
+    <entry file="file://$PROJECT_DIR$/frontend/Schiffedata.csv" />
+    <entry file="file://$PROJECT_DIR$/frontend/SchiffeClassificationCategorical.csv" />
     <entry file="file://$PROJECT_DIR$/frontend/static/dataset/Landfahrzeugdata.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/static/dataset/Luftfahrzeugdata.csv">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/classifier_rules/luftfahrzeug_classifier_rules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/classifier_rules/landfahrzeug_classifier_rules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -513,14 +558,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/aeroplane.html" />
+    <entry file="file://$PROJECT_DIR$/frontend/static/classification_files/SchiffeClassificationCategorical.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/luftfahrzeug.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/random_forest/random_forest_classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="12" column="58" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/static/classification_files/LuftfahrzeugClassificationCategorical.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/static/classification_files/LandfahrzeugClassificationCategorical.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/../ExplanationSystemReccemanNum/SchiffeClassificationCategorical.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/static/lime_explanation_html/Schiffeexplain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="282" column="4" lean-forward="true" selection-start-line="282" selection-start-column="4" selection-end-line="282" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/lime_explanation_html/Schiffeexplain.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/explanation/landfahrzeug_explanation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/classifier_rules/landfahrzeug_classifier_rules.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#179#3501#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../ExplanationSystemReccemanNum/MainReccemanNum.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="1191" lean-forward="true" selection-start-line="1178" selection-start-column="12" selection-end-line="1191" />
+        <state relative-caret-position="527">
+          <caret line="901" selection-start-line="901" selection-end-line="901" />
           <folding>
+            <element signature="e#25#39#0" expanded="true" />
             <element signature="e#601#870#0" />
             <element signature="e#902#9365#0" />
             <element signature="e#9418#12697#0" />
@@ -534,7 +637,6 @@
             <element signature="e#26316#26608#0" />
             <element signature="e#26654#33050#0" />
             <element signature="e#33089#34786#0" />
-            <element signature="e#34831#37285#0" />
             <element signature="e#37333#38068#0" />
             <element signature="e#38116#41684#0" />
             <element signature="e#38174#41684#0" />
@@ -542,54 +644,66 @@
             <element signature="e#41737#42024#0" />
             <element signature="e#42065#47882#0" />
             <element signature="e#47923#49575#0" />
+            <element signature="e#49623#52384#0" />
             <element signature="e#52427#52624#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/templates/luftfahrzeug.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/templates/aeroplane.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/static/classification_files/LuftfahrzeugClassificationCategorical.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/static/classification_files/LandfahrzeugClassificationCategorical.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/static/classification_files/SchiffeClassificationCategorical.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/routing.py">
+    <entry file="file://$PROJECT_DIR$/frontend/templates/explanation/schiffe_explanation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        <state relative-caret-position="-748">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/random_forest/random_forest_classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/classifier_rules/schiffe_classifier_rules.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="105" column="38" lean-forward="true" selection-start-line="105" selection-start-column="38" selection-end-line="105" selection-end-column="38" />
+        <state relative-caret-position="557">
+          <caret line="132" column="59" selection-start-line="132" selection-start-column="30" selection-end-line="132" selection-end-column="59" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1536931642396" expanded="true" signature="149:150" ph="..." />
-            <marker date="1536931642396" expanded="true" signature="174:220" ph="..." />
+            <marker date="1537182631303" expanded="true" signature="204:205" ph="..." />
+            <marker date="1537182631303" expanded="true" signature="229:275" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/classifier_rules/luftfahrzeug_classifier_rules.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="131" column="67" selection-start-line="131" selection-start-column="67" selection-end-line="131" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#179#3638#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/templates/explanation/luftfahrzeug_explanation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="76" selection-start-line="6" selection-start-column="76" selection-end-line="6" selection-end-column="76" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/routing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
           </folding>
         </state>
       </provider>

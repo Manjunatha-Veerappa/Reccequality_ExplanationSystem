@@ -40,6 +40,7 @@ def schiffe_classification():
 def landfahrzeug_classification():
     title = 'landfahrzeug-classification'
     classifier = LandfahrzeugClassifierRules()
+    classifier.random_forest()
     return render_template("classification/landfahrzeug_classification.html", title=title)
 
 @app.route("/landfahrzeug/explanation")
@@ -51,6 +52,7 @@ def landfahrzeug_explanation():
 def luftfahrzeug_classification():
     title = 'luftfahrzeug-classification'
     classifier = LuftfahrzeugClassifierRules()
+    classifier.random_forest()
     return render_template("classification/luftfahrzeug_classification.html", title=title)
 
 @app.route("/luftfahrzeug/explanation")

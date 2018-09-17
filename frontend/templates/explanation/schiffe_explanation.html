@@ -2,81 +2,98 @@
 
 {% block body %}
     {% include 'includes/_schiffenavbar.html' %}
-    {% from "includes/_formhelpers.html" import render_field %}
-    <div class="container">
-        <form class="form-horizontal" action="/action_page.php">
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email" placeholder="Enter 1 or 0">
+
+    <script>
+    $(function(){
+      $("#limeExplanation").load("/static/lime_explanation_html/Schiffeexplain.html");
+    });
+    </script>
+
+    <div style="border: 1px solid black;">
+
+        <div class="container" style="float: left; width:35%;border: 1px solid black;">
+            <form class="form-horizontal" action="/action_page.php">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="pwd">Attribute2:</label>
-                <div class="col-sm-10">
-                  <input type="password" id="pwd" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Attribute2:</label>
+                    <div class="col-sm-10">
+                      <input type="password" id="pwd" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email1" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email1" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email2" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email2" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email3" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email3" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email4" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email4" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email5" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email5" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email6" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email6" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email7" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email7" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email8" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email8" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-sm-2" for="email">Attribute1:</label>
-                <div class="col-sm-10">
-                    <input type="email" id="email9" placeholder="Enter 1 or 0">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Attribute1:</label>
+                    <div class="col-sm-10">
+                        <input type="email" id="email9" placeholder="Enter 1 or 0">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <button type="submit" class="btn btn-default">Submit</button>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default">Submit</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
+
+        <div id="limeExplanation" style="float: right; width:65%;">
+                <br>
+                <br>
+        </div>
+
+        <div style="clear:both; font-size:1px;"></div>
+
     </div>
 
 {% endblock %}

@@ -2,6 +2,9 @@ import csv
 import numpy
 import sklearn
 from backend.random_forest.random_forest_classifier import RandomForest
+import lime
+import webbrowser
+import lime.lime_tabular
 
 class SchiffeClassifierRules(object):
 
@@ -73,7 +76,7 @@ class SchiffeClassifierRules(object):
                     else:
                         result = 0
 
-                    result1 = str(rule1) + str(rule2) + str(rule3) + str(rule4) + str(rule5) + str(rule6) + str(rule7) + str(result)
+                    #result1 = str(rule1) + str(rule2) + str(rule3) + str(rule4) + str(rule5) + str(rule6) + str(rule7) + str(result)
                     result1 = str(result)
 
                     list = [row[3921], row[618], row[2309], row[1917], row[814], row[3158], row[3265], row[3855], row[315], row[697], row[3262], \
@@ -114,5 +117,20 @@ class SchiffeClassifierRules(object):
 
             print("Train Accuracy :: ", sklearn.metrics.accuracy_score(labels_train, trained_model.predict(train)))
             print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(labels_test, predictions))
+
+            headers = ["vectorName", "abmessungen_Breite", "uberwasserschiffe", "uberwasserschiffe_Rumpf_Rumpfart", "uberwasserschiffe_Rumpf_Bugformen", "uberwasserschiffe_Rumpf_Heckformen",
+                       "uberwasserschiffe_Rumpf", "uberwasserschiffe_Aufbauten", "unterwasserschiffe_Rumpform_Rohrenformig", "unterwasserschiffe_Bugformen_Abgerundet", "unterwasserschiffe_Bewaffnung",
+                       "verwendungszweck_Organistaion_Kampfschiff",  "uberwasserschiffe_Einzelrumpf", "uberwasserschiffe_Aufbauten_Brucke",  "uberwasserschiffe_Bewaffnung_Wasserbomben",
+                       "uberwasserschiffe_Rumpf_Deckformen_Glattdecker",  "uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl",
+                       "uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl", "uberwasserschiffe_Masten_Mittelschiff", "result"]
+
+            explainer = lime.lime_tabular.LimeTabularExplainer(train, feature_names=headers[1:-1], class_names=['Bad', 'Good'],  discretize_continuous=True)
+
+            predict_fn = lambda x: trained_model.predict_proba((x).astype(float))
+
+            exp = explainer.explain_instance(test[0], predict_fn, num_features=20)
+
+            exp.save_to_file("static/lime_explanation_html/Schiffeexplain.html")
+
 
 

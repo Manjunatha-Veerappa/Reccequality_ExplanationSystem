@@ -1,4 +1,7 @@
 import csv
+import numpy
+import sklearn
+import lime.lime_tabular
 
 class LuftfahrzeugClassifierRules(object):
 
@@ -76,3 +79,54 @@ class LuftfahrzeugClassifierRules(object):
                     row[930], row[126], row[740], row[350], row[966], row[1067], row[279], row[1068], row[282], row[607], row[874], row[911], result1]
 
                     writer.writerow(list)
+
+    def random_forest(self):
+        count = 0
+        with open("static/classification_files/LuftfahrzeugClassificationCategorical.csv", 'r') as csvfile:
+            reader = csv.reader(csvfile, delimiter=',')
+            included_cols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22]
+            data = []
+            result = []
+            for row in reader:
+                if (count == 0):
+                    count = count + 1
+                    continue
+                else:
+                    result.append(int(row[23]))
+                    content = (list(float(row[i]) for i in included_cols))
+                    data.append(content)
+
+        data = numpy.array(data)
+        result = numpy.array(result)
+
+        explainHeaders = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf", "leitwerk", "drehflugler",
+                   "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker", "triebwerke_triebwerksart",
+                   "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf", "drehflugler_Heckausleger",
+                   "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
+                   "drehflugler_Rotor_EinzelRotor_Rotorblatter", "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
+
+        train, test, labels_train, labels_test = sklearn.model_selection.train_test_split(data, result, train_size=0.80)
+        train = numpy.array(train)
+
+        trained_model = sklearn.ensemble.RandomForestClassifier()
+        trained_model.fit(train, labels_train)
+
+        predictions = trained_model.predict(test)
+
+        for i in range(0, 10):
+            print("Actual outcome :: {} and Predicted outcome :: {}".format(list(labels_test)[i], predictions[i]))
+
+        print("Train Accuracy :: ", sklearn.metrics.accuracy_score(labels_train, trained_model.predict(train)))
+        print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(labels_test, predictions))
+
+        explainer = lime.lime_tabular.LimeTabularExplainer(train, feature_names=explainHeaders[1:-1], class_names=['Bad', 'Good'],
+                                                               discretize_continuous=True)
+        numpy.random.seed(1)
+
+        predict_fn = lambda x: trained_model.predict_proba((x).astype(float))
+
+        i = 10
+        exp = explainer.explain_instance(test[0], predict_fn, num_features=21)
+        # print(test[i])
+
+        exp.save_to_file("static/lime_explanation_html/Luftfahrzeugexplain.html")
