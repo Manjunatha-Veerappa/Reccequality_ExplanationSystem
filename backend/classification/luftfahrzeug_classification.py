@@ -1,9 +1,10 @@
 import csv
 import numpy
 import sklearn
-import lime.lime_tabular
+from backend.random_forest.random_forest_classifier import RandomForest
+from backend.lime_explanation.lime_explanation import  LimeExplanation
 
-class LuftfahrzeugClassifierRules(object):
+class LuftfahrzeugClassification(object):
 
     def __init__(self):
         self.luftfahrzueg_classifier_rules()
@@ -99,34 +100,39 @@ class LuftfahrzeugClassifierRules(object):
         data = numpy.array(data)
         result = numpy.array(result)
 
-        explainHeaders = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf", "leitwerk", "drehflugler",
-                   "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker", "triebwerke_triebwerksart",
-                   "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf", "drehflugler_Heckausleger",
-                   "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
-                   "drehflugler_Rotor_EinzelRotor_Rotorblatter", "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
+        self.classifier = RandomForest()
+        self.train, self.test, self.labels_train, self.labels_test = self.classifier.split_dataset(data, result, 0.8)
+        train = numpy.array(self.train)
 
-        train, test, labels_train, labels_test = sklearn.model_selection.train_test_split(data, result, train_size=0.80)
-        train = numpy.array(train)
+        self.trained_model = self.classifier.random_forest_classifier(train, self.labels_train)
 
-        trained_model = sklearn.ensemble.RandomForestClassifier()
-        trained_model.fit(train, labels_train)
-
-        predictions = trained_model.predict(test)
+        predictions = self.trained_model.predict(self.test)
 
         for i in range(0, 10):
-            print("Actual outcome :: {} and Predicted outcome :: {}".format(list(labels_test)[i], predictions[i]))
+            print("Actual outcome :: {} and Predicted outcome :: {}".format(list(self.labels_test)[i], predictions[i]))
 
-        print("Train Accuracy :: ", sklearn.metrics.accuracy_score(labels_train, trained_model.predict(train)))
-        print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(labels_test, predictions))
+        print("Train Accuracy :: ",
+              sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
+        print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
 
-        explainer = lime.lime_tabular.LimeTabularExplainer(train, feature_names=explainHeaders[1:-1], class_names=['Bad', 'Good'],
-                                                               discretize_continuous=True)
-        numpy.random.seed(1)
+    def lime_explanation(self):
 
-        predict_fn = lambda x: trained_model.predict_proba((x).astype(float))
+        headers = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf",
+                         "leitwerk", "drehflugler",
+                         "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker",
+                         "triebwerke_triebwerksart",
+                         "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf",
+                         "drehflugler_Heckausleger",
+                         "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
+                         "drehflugler_Rotor_EinzelRotor_Rotorblatter",
+                         "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
 
-        i = 10
-        exp = explainer.explain_instance(test[0], predict_fn, num_features=21)
-        # print(test[i])
 
-        exp.save_to_file("static/lime_explanation_html/Luftfahrzeugexplain.html")
+        limeExplainer = LimeExplanation()
+
+        limeExplainer.explainer(self.train, feature_names=headers[1:-1], class_names=['Bad', 'Good'])
+
+        predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
+
+        exp = limeExplainer.explainInstance(self.test[0], predict_fn, num_features=20)
+        limeExplainer.save("luftfahrzeug")

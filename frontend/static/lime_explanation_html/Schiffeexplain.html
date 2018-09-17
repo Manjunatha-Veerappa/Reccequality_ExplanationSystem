@@ -35800,25 +35800,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div3CP0QUYY64FW0NZ"></div>
+        <div class="lime top_div" id="top_divXYM7VG0OUTATT6T"></div>
         
         <script>
-        var top_div = d3.select('#top_div3CP0QUYY64FW0NZ').classed('lime top_div', true);
+        var top_div = d3.select('#top_divXYM7VG0OUTATT6T').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["Bad", "Good"], [1.0, 0.0]);
+            var pp = new lime.PredictProba(pp_svg, ["Bad", "Good"], [0.0, 1.0]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["Bad", "Good"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["0.00 < verwendungszweck_Organistaion_Kampfschiff <= 1.00", -0.6691044491619025], ["0.00 < uberwasserschiffe_Masten_Mittelschiff <= 1.00", -0.09449161870835035], ["-1.00 < uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl <= 1.00", 0.07737224444501467], ["-1.00 < uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl <= 1.00", 0.0549098783442884], ["uberwasserschiffe_Bewaffnung_Wasserbomben <= 0.00", 0.026813254182715705], ["0.00 < uberwasserschiffe_Rumpf_Deckformen_Glattdecker <= 1.00", -0.021633555420159316], ["unterwasserschiffe_Rumpform_Rohrenformig <= 0.00", -0.014994893210603346], ["unterwasserschiffe_Bugformen_Abgerundet <= 0.00", -0.004172978151902545], ["11.80 < abmessungen_Breite <= 16.25", 0.004013197137510351], ["unterwasserschiffe_Bewaffnung <= 0.00", 0.00379276101370435], ["uberwasserschiffe_Rumpf_Heckformen <= 1.00", 0.0], ["uberwasserschiffe_Aufbauten <= 1.00", 0.0], ["uberwasserschiffe_Rumpf_Rumpfart <= 1.00", 0.0], ["uberwasserschiffe_Rumpf_Bugformen <= 1.00", 0.0], ["uberwasserschiffe_Aufbauten_Brucke <= 1.00", 0.0], ["uberwasserschiffe_Einzelrumpf <= 1.00", 0.0], ["uberwasserschiffe_Rumpf <= 1.00", 0.0], ["uberwasserschiffe <= 1.00", 0.0]], 1, exp_div);
+                exp.show([["verwendungszweck_Organistaion_Kampfschiff <= 0.00", 0.6939867690829095], ["uberwasserschiffe_Bewaffnung_Wasserbomben <= 0.00", 0.10959953528734472], ["unterwasserschiffe_Bewaffnung <= 0.00", 0.06286473777766155], ["-1.00 < uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl <= 1.00", 0.03860932818415644], ["uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl <= -1.00", 0.016509867603384815], ["0.00 < uberwasserschiffe_Rumpf_Deckformen_Glattdecker <= 1.00", -0.012511284253681603], ["unterwasserschiffe_Bugformen_Abgerundet <= 0.00", 0.00955830858074126], ["abmessungen_Breite > 16.80", 0.00947829245289883], ["0.00 < uberwasserschiffe_Masten_Mittelschiff <= 1.00", 0.005162033388193244], ["unterwasserschiffe_Rumpform_Rohrenformig <= 0.00", -0.004891464938396709], ["uberwasserschiffe_Rumpf_Bugformen <= 1.00", 0.0], ["uberwasserschiffe_Rumpf <= 1.00", 0.0], ["uberwasserschiffe_Rumpf_Heckformen <= 1.00", 0.0], ["uberwasserschiffe_Rumpf_Rumpfart <= 1.00", 0.0], ["uberwasserschiffe <= 1.00", 0.0], ["uberwasserschiffe_Aufbauten_Brucke <= 1.00", 0.0], ["uberwasserschiffe_Einzelrumpf <= 1.00", 0.0], ["uberwasserschiffe_Aufbauten <= 1.00", 0.0]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["verwendungszweck_Organistaion_Kampfschiff", "1.00", -0.6691044491619025], ["uberwasserschiffe_Masten_Mittelschiff", "1.00", -0.09449161870835035], ["uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl", "1.00", 0.07737224444501467], ["uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl", "1.00", 0.0549098783442884], ["uberwasserschiffe_Bewaffnung_Wasserbomben", "0.00", 0.026813254182715705], ["uberwasserschiffe_Rumpf_Deckformen_Glattdecker", "1.00", -0.021633555420159316], ["unterwasserschiffe_Rumpform_Rohrenformig", "0.00", -0.014994893210603346], ["unterwasserschiffe_Bugformen_Abgerundet", "0.00", -0.004172978151902545], ["abmessungen_Breite", "13.00", 0.004013197137510351], ["unterwasserschiffe_Bewaffnung", "0.00", 0.00379276101370435], ["uberwasserschiffe_Rumpf_Heckformen", "1.00", 0.0], ["uberwasserschiffe_Aufbauten", "1.00", 0.0], ["uberwasserschiffe_Rumpf_Rumpfart", "1.00", 0.0], ["uberwasserschiffe_Rumpf_Bugformen", "1.00", 0.0], ["uberwasserschiffe_Aufbauten_Brucke", "1.00", 0.0], ["uberwasserschiffe_Einzelrumpf", "1.00", 0.0], ["uberwasserschiffe_Rumpf", "1.00", 0.0], ["uberwasserschiffe", "1.00", 0.0]], 1, raw_div);
+            exp.show_raw_tabular([["verwendungszweck_Organistaion_Kampfschiff", "0.00", 0.6939867690829095], ["uberwasserschiffe_Bewaffnung_Wasserbomben", "0.00", 0.10959953528734472], ["unterwasserschiffe_Bewaffnung", "0.00", 0.06286473777766155], ["uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl", "1.00", 0.03860932818415644], ["uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl", "-1.00", 0.016509867603384815], ["uberwasserschiffe_Rumpf_Deckformen_Glattdecker", "1.00", -0.012511284253681603], ["unterwasserschiffe_Bugformen_Abgerundet", "0.00", 0.00955830858074126], ["abmessungen_Breite", "24.00", 0.00947829245289883], ["uberwasserschiffe_Masten_Mittelschiff", "1.00", 0.005162033388193244], ["unterwasserschiffe_Rumpform_Rohrenformig", "0.00", -0.004891464938396709], ["uberwasserschiffe_Rumpf_Bugformen", "1.00", 0.0], ["uberwasserschiffe_Rumpf", "1.00", 0.0], ["uberwasserschiffe_Rumpf_Heckformen", "1.00", 0.0], ["uberwasserschiffe_Rumpf_Rumpfart", "1.00", 0.0], ["uberwasserschiffe", "1.00", 0.0], ["uberwasserschiffe_Aufbauten_Brucke", "1.00", 0.0], ["uberwasserschiffe_Einzelrumpf", "1.00", 0.0], ["uberwasserschiffe_Aufbauten", "1.00", 0.0]], 1, raw_div);
         
         </script>
         </body></html>

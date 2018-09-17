@@ -1,12 +1,13 @@
 import csv
-import lime
 import numpy
-import lime.lime_tabular
 import sklearn
+from backend.random_forest.random_forest_classifier import RandomForest
+from backend.lime_explanation.lime_explanation import LimeExplanation
 
-class LandfahrzeugClassifierRules(object):
+class LandfahrzeugClassification(object):
 
     def __init__(self):
+        self.classifier = None
         self.landfahrzueg_classifier_rules()
 
     def landfahrzueg_classifier_rules(self):
@@ -98,20 +99,21 @@ class LandfahrzeugClassifierRules(object):
         data = numpy.array(data)
         result = numpy.array(result)
 
-        train, test, labels_train, labels_test = sklearn.model_selection.train_test_split(data, result, train_size=0.80)
-        train = numpy.array(train)
+        self.classifier = RandomForest()
+        self.train, self.test, self.labels_train, self.labels_test = self.classifier.split_dataset(data, result, 0.8)
+        train = numpy.array(self.train)
 
-        trained_model = sklearn.ensemble.RandomForestClassifier()
-        trained_model.fit(train, labels_train)
+        self.trained_model = self.classifier.random_forest_classifier(train, self.labels_train)
 
-        predictions = trained_model.predict(test)
+        predictions = self.trained_model.predict(self.test)
 
         for i in range(0, 10):
-            print("Actual outcome :: {} and Predicted outcome :: {}".format(list(labels_test)[i], predictions[i]))
+            print("Actual outcome :: {} and Predicted outcome :: {}".format(list(self.labels_test)[i], predictions[i]))
 
-        print("Train Accuracy :: ", sklearn.metrics.accuracy_score(labels_train, trained_model.predict(train)))
-        print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(labels_test, predictions))
-        print(sklearn.metrics.f1_score(labels_train, trained_model.predict(train)))
+        print("Train Accuracy :: ", sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
+        print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
+
+    def lime_explanation(self):
 
         headers = ["vectorName", "abmessungen_Breite", "gezogenes_Gerat", "rader_Achsen", "kettenfahrzeug",
                    "kettenlaufwerk", "kettendetails",
@@ -124,19 +126,12 @@ class LandfahrzeugClassifierRules(object):
                    "wanne_Karossiere_Holme_Lafette_Lucken",
                    "wanne_Karossiere_Holme_Lafette_Motor_Motorposition_Hinten_Mitte", "result"]
 
-        print(len(headers[1:-1]))
-        #print(len(self.landtestarr))
-        #print(len(data))
+        limeExplainer = LimeExplanation()
 
-        explainer = lime.lime_tabular.LimeTabularExplainer(train, feature_names=headers[1:-1],
-                                                           class_names=['Bad', 'Good'], discretize_continuous=True)
+        print(self.train)
+        limeExplainer.explainer(self.train, feature_names=headers[1:-1], class_names=['Bad', 'Good'])
 
-        predict_fn = lambda x: trained_model.predict_proba(x.astype(float))
+        predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
 
-        i = 10
-        exp = explainer.explain_instance(test[0], predict_fn, num_features=19)
-        #print(test[i])
-        #print(labels_test[i])
-        #print(predictions[i])
-
-        exp.save_to_file("static/lime_explanation_html/Landexplain.html")
+        exp = limeExplainer.explainInstance(self.test[0], predict_fn, num_features=20)
+        limeExplainer.save("landfahrzeug")

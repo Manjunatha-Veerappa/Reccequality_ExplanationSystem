@@ -2,13 +2,12 @@ import csv
 import numpy
 import sklearn
 from backend.random_forest.random_forest_classifier import RandomForest
-import lime
-import webbrowser
-import lime.lime_tabular
+from backend.lime_explanation.lime_explanation import  LimeExplanation
 
-class SchiffeClassifierRules(object):
+class SchiffeClassification(object):
 
     def __init__(self):
+        self.classifer = None
         self.schiffe_classifier_rules()
 
     def schiffe_classifier_rules(self):
@@ -104,33 +103,40 @@ class SchiffeClassifierRules(object):
             data = numpy.array(data)
             result = numpy.array(result)
 
-            classifier = RandomForest()
-            train, test, labels_train, labels_test = classifier.split_dataset(data, result, 0.8)
-            train = numpy.array(train)
+            self.classifier = RandomForest()
+            self.train, self.test, self.labels_train, self.labels_test = self.classifier.split_dataset(data, result, 0.8)
+            train = numpy.array(self.train)
 
-            trained_model = classifier.random_forest_classifier(train, labels_train)
+            self.trained_model = self.classifier.random_forest_classifier(train, self.labels_train)
 
-            predictions = trained_model.predict(test)
+            predictions = self.trained_model.predict(self.test)
 
             for i in range(0, 10):
-                print("Actual outcome :: {} and Predicted outcome :: {}".format(list(labels_test)[i], predictions[i]))
+                print("Actual outcome :: {} and Predicted outcome :: {}".format(list(self.labels_test)[i], predictions[i]))
 
-            print("Train Accuracy :: ", sklearn.metrics.accuracy_score(labels_train, trained_model.predict(train)))
-            print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(labels_test, predictions))
+            print("Train Accuracy :: ", sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
+            print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
 
-            headers = ["vectorName", "abmessungen_Breite", "uberwasserschiffe", "uberwasserschiffe_Rumpf_Rumpfart", "uberwasserschiffe_Rumpf_Bugformen", "uberwasserschiffe_Rumpf_Heckformen",
-                       "uberwasserschiffe_Rumpf", "uberwasserschiffe_Aufbauten", "unterwasserschiffe_Rumpform_Rohrenformig", "unterwasserschiffe_Bugformen_Abgerundet", "unterwasserschiffe_Bewaffnung",
-                       "verwendungszweck_Organistaion_Kampfschiff",  "uberwasserschiffe_Einzelrumpf", "uberwasserschiffe_Aufbauten_Brucke",  "uberwasserschiffe_Bewaffnung_Wasserbomben",
-                       "uberwasserschiffe_Rumpf_Deckformen_Glattdecker",  "uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl",
-                       "uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl", "uberwasserschiffe_Masten_Mittelschiff", "result"]
 
-            explainer = lime.lime_tabular.LimeTabularExplainer(train, feature_names=headers[1:-1], class_names=['Bad', 'Good'],  discretize_continuous=True)
+    def lime_explanation(self):
 
-            predict_fn = lambda x: trained_model.predict_proba((x).astype(float))
+        headers = ["vectorName", "abmessungen_Breite", "uberwasserschiffe", "uberwasserschiffe_Rumpf_Rumpfart", "uberwasserschiffe_Rumpf_Bugformen", "uberwasserschiffe_Rumpf_Heckformen",
+                   "uberwasserschiffe_Rumpf", "uberwasserschiffe_Aufbauten", "unterwasserschiffe_Rumpform_Rohrenformig", "unterwasserschiffe_Bugformen_Abgerundet", "unterwasserschiffe_Bewaffnung",
+                   "verwendungszweck_Organistaion_Kampfschiff", "uberwasserschiffe_Einzelrumpf", "uberwasserschiffe_Aufbauten_Brucke", "uberwasserschiffe_Bewaffnung_Wasserbomben",
+                   "uberwasserschiffe_Rumpf_Deckformen_Glattdecker", "uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl",
+                   "uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl", "uberwasserschiffe_Masten_Mittelschiff", "result"]
 
-            exp = explainer.explain_instance(test[0], predict_fn, num_features=20)
 
-            exp.save_to_file("static/lime_explanation_html/Schiffeexplain.html")
+        limeExplainer = LimeExplanation()
+
+        limeExplainer.explainer(self.train, feature_names=headers[1:-1], class_names=['Bad', 'Good'])
+
+        predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
+
+
+        exp = limeExplainer.explainInstance(self.test[0], predict_fn, num_features=20)
+        limeExplainer.save("Schiffe")
+
 
 
 

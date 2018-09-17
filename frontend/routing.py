@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import IntegerField, SelectField, SubmitField, validators, ValidationError, StringField, PasswordField
-from backend.classifier_rules.schiffe_classifier_rules import SchiffeClassifierRules
-from backend.classifier_rules.landfahrzeug_classifier_rules import LandfahrzeugClassifierRules
-from backend.classifier_rules.luftfahrzeug_classifier_rules import LuftfahrzeugClassifierRules
+from backend.classification.schiffe_classification import SchiffeClassification
+from backend.classification.landfahrzeug_classification import LandfahrzeugClassification
+from backend.classification.luftfahrzeug_classification import LuftfahrzeugClassification
 
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -32,15 +32,17 @@ def luftfahrzeug():
 @app.route("/schiffe/classification")
 def schiffe_classification():
     title = 'schiffe-classification'
-    classifier = SchiffeClassifierRules()
+    classifier = SchiffeClassification()
     classifier.random_forest()
+    classifier.lime_explanation()
     return render_template("classification/schiffe_classification.html", title=title)
 
 @app.route("/landfahrzeug/classification")
 def landfahrzeug_classification():
     title = 'landfahrzeug-classification'
-    classifier = LandfahrzeugClassifierRules()
+    classifier = LandfahrzeugClassification()
     classifier.random_forest()
+    classifier.lime_explanation()
     return render_template("classification/landfahrzeug_classification.html", title=title)
 
 @app.route("/landfahrzeug/explanation")
@@ -51,8 +53,9 @@ def landfahrzeug_explanation():
 @app.route("/luftfahrzeug/classification")
 def luftfahrzeug_classification():
     title = 'luftfahrzeug-classification'
-    classifier = LuftfahrzeugClassifierRules()
+    classifier = LuftfahrzeugClassification()
     classifier.random_forest()
+    classifier.lime_explanation()
     return render_template("classification/luftfahrzeug_classification.html", title=title)
 
 @app.route("/luftfahrzeug/explanation")
@@ -72,10 +75,8 @@ class SchiffeExplanationForm(FlaskForm):
 
 @app.route("/schiffe/explanation", methods=['GET', 'POST'])
 def schiffe_explanation():
-    form = SchiffeExplanationForm(request.form)
-    if(request.method == 'POST' and form.validate()):
-        return render_template("explanation/schiffe_explanation.html", form=form)
-    return render_template("explanation/schiffe_explanation.html", form=form)
+    title = 'schiffe-explanation'
+    return render_template("explanation/schiffe_explanation.html", title=title)
 
 if(__name__ == '__main__'):
     app.run(debug=True)
