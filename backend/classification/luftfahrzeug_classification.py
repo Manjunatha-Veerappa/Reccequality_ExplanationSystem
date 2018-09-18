@@ -1,6 +1,7 @@
 import csv
 import numpy
 import sklearn
+import matplotlib
 from backend.model.random_forest_classifier import RandomForest
 from backend.lime_explanation.lime_explanation import  LimeExplanation
 
@@ -156,4 +157,6 @@ class LuftfahrzeugClassification(object):
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
         data_to_be_explained = numpy.array(arr)
         exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=20)
+        fig = exp.as_pyplot_figure()
         limeExplainer.save("luftfahrzeug")
+        return fig

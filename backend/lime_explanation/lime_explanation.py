@@ -19,4 +19,5 @@ class LimeExplanation:
         fig = self.exp.as_pyplot_figure()
         print(fig.get_dpi())
         fig.savefig("static/lime_explanation_images/" + domain + "_explanation.png")
+        fig.savefig("static/lime_explanation_images/" + domain + "_explanation.pdf")
         print("figure saved")

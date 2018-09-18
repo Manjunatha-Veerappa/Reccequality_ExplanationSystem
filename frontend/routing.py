@@ -97,8 +97,8 @@ def luftfahrzeug_explanation():
             classifier = LuftfahrzeugClassification()
             classifier.random_forest()
             #classifier.lime_explanation()
-            classifier.lime_explanation4user_data(data)
-            return render_template("explanation/luftfahrzeug_explanation.html", title=title, data=data)
+            img = classifier.lime_explanation4user_data(data)
+            return render_template("explanation/luftfahrzeug_explanation.html", title=title, data=data, img=img)
     except Exception as e:
         flash(e)
         return render_template("explanation/luftfahrzeug_explanation.html", title=title)
