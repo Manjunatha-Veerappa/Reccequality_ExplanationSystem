@@ -61,14 +61,7 @@ def luftfahrzeug_explanation():
     title = 'luftfahrzeug-explanation'
     try:
         if(request.method == "POST"):
-            #import os
-            #path = os.getcwd() + "/static/lime_explanation_html/luftfahrzeugexplain.html"
-            #print(path)
-            #if os.path.isfile(path):
-                #os.remove(path)
-                #print('file removed')
-            #else:
-                #print("The file does not exist")
+
             abmessungen_länge = int(request.form['abmessungen_länge'])
             starflügler = int(request.form['starflügler'])
             tragflächen = int(request.form['tragflächen'])
@@ -90,15 +83,17 @@ def luftfahrzeug_explanation():
             drehflügler_triebwerk_luftauslass = int(request.form['drehflügler_triebwerk_luftauslass'])
             drehflugler_rotor_einzelRotor_rotorblatter = int(request.form['drehflugler_rotor_einzelRotor_rotorblatter'])
             drehflugler_triebwerk_position_uberdemRumpf_anzahl = int(request.form['drehflugler_triebwerk_position_uberdemRumpf_anzahl'])
+
             data = [abmessungen_länge, starflügler, tragflächen, triebwerke, rumpf, leitwerk, drehflügler, drehflügler_rumpf_cockpit, doppeldecker, tragflächen_stellung_gerade, hochDecker,
                     triebwerke_triebwerksart, rumpf_rumpfformen, drehflügler_rotor, drehflügler_triebwerk, drehflügler_rumpf, drehflügler_heckausleger, drehflügler_triebwerk_lufteinlass,
                     drehflügler_triebwerk_luftauslass, drehflugler_rotor_einzelRotor_rotorblatter, drehflugler_triebwerk_position_uberdemRumpf_anzahl]
-            print(data)
+
             classifier = LuftfahrzeugClassification()
             classifier.random_forest()
-            #classifier.lime_explanation()
             img = classifier.lime_explanation4user_data(data)
+
             return render_template("explanation/luftfahrzeug_explanation.html", title=title, data=data, img=img)
+
     except Exception as e:
         flash(e)
         return render_template("explanation/luftfahrzeug_explanation.html", title=title)

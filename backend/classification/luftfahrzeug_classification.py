@@ -1,13 +1,20 @@
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import csv
 import numpy
 import sklearn
-import matplotlib
 from backend.model.random_forest_classifier import RandomForest
 from backend.lime_explanation.lime_explanation import  LimeExplanation
 
 class LuftfahrzeugClassification(object):
 
     def __init__(self):
+        self.header_list = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf", "leitwerk",
+                            "drehflugler", "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker",
+                            "triebwerke_triebwerksart", "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf",
+                            "drehflugler_Heckausleger", "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
+                            "zusatzinformationen_Familie", "drehflugler_Rotor_EinzelRotor_Rotorblatter", "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
         self.luftfahrzueg_classifier_rules()
 
     def luftfahrzueg_classifier_rules(self):
@@ -18,13 +25,7 @@ class LuftfahrzeugClassification(object):
             count = 0
             for row in reader:
                 if (count == 0):
-                    header_list = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf", "leitwerk",
-                   "drehflugler", "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker",
-                   "triebwerke_triebwerksart", "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf",
-                   "drehflugler_Heckausleger", "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
-                   "zusatzinformationen_Familie", "drehflugler_Rotor_EinzelRotor_Rotorblatter",
-                   "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
-                    writer.writerow(header_list)
+                    writer.writerow(self.header_list)
                     count += 1
                     continue
                 else:
@@ -116,47 +117,17 @@ class LuftfahrzeugClassification(object):
               sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
         print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
 
-    def lime_explanation(self):
-
-        headers = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf",
-                         "leitwerk", "drehflugler",
-                         "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker",
-                         "triebwerke_triebwerksart",
-                         "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf",
-                         "drehflugler_Heckausleger",
-                         "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
-                         "drehflugler_Rotor_EinzelRotor_Rotorblatter",
-                         "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
-
-
-        limeExplainer = LimeExplanation()
-
-        limeExplainer.explainer(self.train, feature_names=headers[1:-1], class_names=['Bad', 'Good'])
-
-        predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
-
-        exp = limeExplainer.explainInstance(self.test[0], predict_fn, num_features=20)
-        limeExplainer.save("luftfahrzeug")
-
     def lime_explanation4user_data(self, arr):
-        print("entered into the lime_explanation4user_data")
-        headers = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf",
-                   "leitwerk", "drehflugler",
-                   "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker",
-                   "triebwerke_triebwerksart",
-                   "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf",
-                   "drehflugler_Heckausleger",
-                   "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
-                   "drehflugler_Rotor_EinzelRotor_Rotorblatter",
-                   "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
 
         limeExplainer = LimeExplanation()
-
-        limeExplainer.explainer(self.train, feature_names=headers[1:-1], class_names=['Bad', 'Good'])
+        limeExplainer.explainer(self.train, feature_names=self.header_list[1:-1], class_names=['Bad', 'Good'])
 
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
         data_to_be_explained = numpy.array(arr)
         exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=20)
+
         fig = exp.as_pyplot_figure()
-        limeExplainer.save("luftfahrzeug")
+
+        fig.savefig("static/lime_explanation_images/luftfahrzeug_explanation.png")
+        print("figure saved! and returning")
         return fig

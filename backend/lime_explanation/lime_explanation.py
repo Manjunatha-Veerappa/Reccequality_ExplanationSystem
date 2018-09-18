@@ -13,11 +13,3 @@ class LimeExplanation:
         self.exp = self.explainer.explain_instance(test, predict_proba, num_features=num_features)
         return self.exp
 
-    def save(self, domain):
-        #self.exp.save_to_file("static/lime_explanation_html/" + domain + "explain.html")
-        #print("file saved to " + "static/lime_explanation_html/" + domain + "explain.html")
-        fig = self.exp.as_pyplot_figure()
-        print(fig.get_dpi())
-        fig.savefig("static/lime_explanation_images/" + domain + "_explanation.png")
-        fig.savefig("static/lime_explanation_images/" + domain + "_explanation.pdf")
-        print("figure saved")
