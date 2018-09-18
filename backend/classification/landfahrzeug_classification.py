@@ -1,7 +1,7 @@
 import csv
 import numpy
 import sklearn
-from backend.random_forest.random_forest_classifier import RandomForest
+from backend.model.random_forest_classifier import RandomForest
 from backend.lime_explanation.lime_explanation import LimeExplanation
 
 class LandfahrzeugClassification(object):

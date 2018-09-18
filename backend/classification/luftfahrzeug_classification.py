@@ -1,7 +1,7 @@
 import csv
 import numpy
 import sklearn
-from backend.random_forest.random_forest_classifier import RandomForest
+from backend.model.random_forest_classifier import RandomForest
 from backend.lime_explanation.lime_explanation import  LimeExplanation
 
 class LuftfahrzeugClassification(object):
@@ -135,4 +135,25 @@ class LuftfahrzeugClassification(object):
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
 
         exp = limeExplainer.explainInstance(self.test[0], predict_fn, num_features=20)
+        limeExplainer.save("luftfahrzeug")
+
+    def lime_explanation4user_data(self, arr):
+        print("entered into the lime_explanation4user_data")
+        headers = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf",
+                   "leitwerk", "drehflugler",
+                   "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker",
+                   "triebwerke_triebwerksart",
+                   "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf",
+                   "drehflugler_Heckausleger",
+                   "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
+                   "drehflugler_Rotor_EinzelRotor_Rotorblatter",
+                   "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
+
+        limeExplainer = LimeExplanation()
+
+        limeExplainer.explainer(self.train, feature_names=headers[1:-1], class_names=['Bad', 'Good'])
+
+        predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
+        data_to_be_explained = numpy.array(arr)
+        exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=20)
         limeExplainer.save("luftfahrzeug")

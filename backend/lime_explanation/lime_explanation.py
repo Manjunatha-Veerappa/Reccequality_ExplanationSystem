@@ -14,4 +14,9 @@ class LimeExplanation:
         return self.exp
 
     def save(self, domain):
-        self.exp.save_to_file("static/lime_explanation_html/" + domain + "explain.html")
+        #self.exp.save_to_file("static/lime_explanation_html/" + domain + "explain.html")
+        #print("file saved to " + "static/lime_explanation_html/" + domain + "explain.html")
+        fig = self.exp.as_pyplot_figure()
+        print(fig.get_dpi())
+        fig.savefig("static/lime_explanation_images/" + domain + "_explanation.png")
+        print("figure saved")

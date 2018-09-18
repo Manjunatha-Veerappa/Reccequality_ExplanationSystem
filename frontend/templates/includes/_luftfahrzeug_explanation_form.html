@@ -1,153 +1,162 @@
 <script>
-$(function(){
-  $("#limeExplanation").load("/static/lime_explanation_html/Luftfahrzeugexplain.html");
-});
-</script>
+    $(function(){
+      $("#limeExplanation").load("/static/lime_explanation_html/luftfahrzeugexplain.html");
+    });
+ </script>
 
 <div style="border: 1px solid black;">
     <div class="container" style="float: left; width:35%;border: 1px solid black;">
         <h4 style="text-align:center;">Data Attributes</h4>
         <hr style="height:1px;" />
-        <form class="form-horizontal" action="/action_page.php">
+        <form class="form-horizontal" action="" method="post">
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Abmessungen_Länge:</label>
+                <label class="control-label col-sm-1" >Abmessungen_Länge:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email" placeholder="">
+                    <input type="text" name="abmessungen_länge" value="{{request.form.abmessungen_länge}}" placeholder="Enter a number">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="pwd">Starflügler:</label>
+                <label class="control-label col-sm-1" >Starflügler:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                  <input type="password" id="pwd" placeholder="">
+                  <input type="text" name="starflügler" value="{{request.form.starflügler}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Tragflächen:</label>
+                <label class="control-label col-sm-1" >Tragflächen:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email1" placeholder="">
+                    <input type="text" name="tragflächen" value="{{request.form.tragflächen}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Triebwerke:</label>
+                <label class="control-label col-sm-1" >Triebwerke:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email2" placeholder="">
+                    <input type="text" name="triebwerke" value="{{request.form.triebwerke}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Rumpf:</label>
+                <label class="control-label col-sm-1" >Rumpf:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email3" placeholder="">
+                    <input type="text" name="rumpf" value="{{request.form.rumpf}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Leitwerk:</label>
+                <label class="control-label col-sm-1" >Leitwerk:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email4" placeholder="">
+                    <input type="text" name="leitwerk" value="{{request.form.leitwerk}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Drehflügler:</label>
+                <label class="control-label col-sm-1" >Drehflügler:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email5" placeholder="">
+                    <input type="text" name="drehflügler" value="{{request.form.drehflügler}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Drehflügler_Rumpf_Cockpit:</label>
+                <label class="control-label col-sm-1" >Drehflügler_Rumpf_Cockpit:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email6" placeholder="">
+                    <input type="text" name="drehflügler_rumpf_cockpit" value="{{request.form.drehflügler_rumpf_cockpit}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Doppeldecker:</label>
+                <label class="control-label col-sm-1" >Doppeldecker:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email7" placeholder="">
+                    <input type="text" name="doppeldecker" value="{{request.form.doppeldecker}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Tragflächen_Stellung_Gerade:</label>
+                <label class="control-label col-sm-1" >Tragflächen_Stellung_Gerade:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email8" placeholder="">
+                    <input type="text" name="tragflächen_stellung_gerade" value="{{request.form.tragflächen_stellung_gerade}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">HochDecker:</label>
+                <label class="control-label col-sm-1" >HochDecker:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email10" placeholder="">
+                    <input type="text" name="hochDecker" value="{{request.form.hochDecker}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Triebwerke_triebwerksart:</label>
+                <label class="control-label col-sm-1" >Triebwerke_Triebwerksart:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email11" placeholder="">
+                    <input type="text" name="triebwerke_triebwerksart" value="{{request.form.triebwerke_triebwerksart}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Rumpf_Rumpfformen:</label>
+                <label class="control-label col-sm-1" >Rumpf_Rumpfformen:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email12" placeholder="">
+                    <input type="text" name="rumpf_rumpfformen" value="{{request.form.rumpf_rumpfformen}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Drehflügler_Rotor:</label>
+                <label class="control-label col-sm-1" >Drehflügler_Rotor:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email13" placeholder="">
+                    <input type="text" name="drehflügler_rotor" value="{{request.form.drehflügler_rotor}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Drehflügler_Triebwerk:</label>
+                <label class="control-label col-sm-1" >Drehflügler_Triebwerk:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email14" placeholder="">
+                    <input type="text" name="drehflügler_triebwerk" value="{{request.form.drehflügler_triebwerk}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Drehflügler_Rumpf:</label>
+                <label class="control-label col-sm-1" >Drehflügler_Rumpf:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email15" placeholder="">
+                    <input type="text" name="drehflügler_rumpf" value="{{request.form.drehflügler_rumpf}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Drehflügler_Heckausleger:</label>
+                <label class="control-label col-sm-1" >Drehflügler_Heckausleger:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email16" placeholder="">
+                    <input type="text" name="drehflügler_heckausleger" value="{{request.form.drehflügler_heckausleger}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Drehflügler_Triebwerk_Lufteinlass:</label>
+                <label class="control-label col-sm-1" >Drehflügler_Triebwerk_Lufteinlass:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email17" placeholder="">
+                    <input type="text" name="drehflügler_triebwerk_lufteinlass" value="{{request.form.drehflügler_triebwerk_lufteinlass}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">Drehflügler_Triebwerk_Luftauslass:</label>
+                <label class="control-label col-sm-1" >Drehflügler_Triebwerk_Luftauslass:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email18" placeholder="">
+                    <input type="text" name="drehflügler_triebwerk_luftauslass" value="{{request.form.drehflügler_triebwerk_luftauslass}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">drehflugler_Rotor_EinzelRotor_Rotorblatter:</label>
+                <label class="control-label col-sm-1" >Drehflugler_Rotor_EinzelRotor_Rotorblatter:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email19" placeholder="">
+                    <input type="text" name="drehflugler_rotor_einzelRotor_rotorblatter" value="{{request.form.drehflugler_rotor_einzelRotor_rotorblatter}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-sm-1" for="email">drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl:</label>
+                <label class="control-label col-sm-1" >Drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl:</label>
                 <div class="col-lg-offset-8 col-sm-20">
-                    <input type="email" id="email20" placeholder="">
+                    <input type="text" name="drehflugler_triebwerk_position_uberdemRumpf_anzahl" value="{{request.form.drehflugler_triebwerk_position_uberdemRumpf_anzahl}}" placeholder="Enter 1(present) / 0(absent)">
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-lg-offset-9 col-lg-12">
-                  <button type="submit" class="btn btn-success">Submit</button>
+                  <button type="submit" value="submit" class="btn btn-success">Submit</button>
                 </div>
             </div>
         </form>
     </div>
 
-    <div id="limeExplanation" style="float: right; width:65%;">
+    <div style="float: right; width:65%;">
+        <div>
+            <h4 style="text-align:center;">Explanation</h4>
+            <hr style="height:1px;" />
+            <p style="text-align:center;">{{ data }}</p>
             <br>
-            <br>
-    </div>
 
+            <br>
+        </div>
+        <div id="limeExplanation" >
+
+        </div>
+    </div>
     <div style="clear:both; font-size:1px;"></div>
 
 </div>
+
