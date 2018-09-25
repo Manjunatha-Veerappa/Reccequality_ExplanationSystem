@@ -10,6 +10,7 @@ from backend.lime_explanation.lime_explanation import  LimeExplanation
 class LuftfahrzeugClassification(object):
 
     def __init__(self):
+        self.classifier = None
         self.header_list = ["vectorName", "abmessungen_Lange", "starrflugler", "tragflachen", "triebwerke", "rumpf", "leitwerk",
                             "drehflugler", "drehflugler_Rumpf_Cockpit", "doppeldecker", "tragflachen_Stellung_Gerade", "hochDecker",
                             "triebwerke_triebwerksart", "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf",

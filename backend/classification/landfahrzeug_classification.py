@@ -8,6 +8,15 @@ class LandfahrzeugClassification(object):
 
     def __init__(self):
         self.classifier = None
+        self.header_list = ["vectorName", "abmessungen_Breite", "gezogenes_Gerat", "rader_Achsen", "kettenfahrzeug", \
+                       "kettenlaufwerk", "kettendetails", "aufbau_Turm_Turmform", "aufbau_Turm_Turmposition",
+                       "radfahrzeug", \
+                       "wanne_Karossiere_Holme_Lafette_Wanne", "wanne_Karossiere_Holme_Lafette_Motor_Motorposition", \
+                       "wanne_Karossiere_Holme_Lafette_Wanne_Form_Kastenformig",
+                       "wanne_Karossiere_Holme_Lafette_Wanne_Form_Draufsicht_Bug", \
+                       "wanne_Karossiere_Holme_Lafette_Wanne_Form_Draufsicht_Heck", "zusatzinformationen_Familie", \
+                       "wanne_Karossiere_Holme_Lafette_Lucken",
+                       "wanne_Karossiere_Holme_Lafette_Motor_Motorposition_Hinten_Mitte", "result"]
         self.landfahrzueg_classifier_rules()
 
     def landfahrzueg_classifier_rules(self):
@@ -18,13 +27,7 @@ class LandfahrzeugClassification(object):
             count = 0
             for row in reader:
                 if (count == 0):
-                    header_list = ["vectorName", "abmessungen_Breite", "gezogenes_Gerat", "rader_Achsen", "kettenfahrzeug",\
-                                  "kettenlaufwerk", "kettendetails", "aufbau_Turm_Turmform", "aufbau_Turm_Turmposition", "radfahrzeug",\
-                                  "wanne_Karossiere_Holme_Lafette_Wanne", "wanne_Karossiere_Holme_Lafette_Motor_Motorposition",\
-                                  "wanne_Karossiere_Holme_Lafette_Wanne_Form_Kastenformig", "wanne_Karossiere_Holme_Lafette_Wanne_Form_Draufsicht_Bug",\
-                                  "wanne_Karossiere_Holme_Lafette_Wanne_Form_Draufsicht_Heck", "zusatzinformationen_Familie", \
-                                  "wanne_Karossiere_Holme_Lafette_Lucken", "wanne_Karossiere_Holme_Lafette_Motor_Motorposition_Hinten_Mitte", "result"]
-                    writer.writerow(header_list)
+                    writer.writerow(self.header_list)
                     count += 1
                     continue
                 else:
@@ -113,25 +116,17 @@ class LandfahrzeugClassification(object):
         print("Train Accuracy :: ", sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
         print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
 
-    def lime_explanation(self):
-
-        headers = ["vectorName", "abmessungen_Breite", "gezogenes_Gerat", "rader_Achsen", "kettenfahrzeug",
-                   "kettenlaufwerk", "kettendetails",
-                   "aufbau_Turm_Turmform", "aufbau_Turm_Turmposition", "radfahrzeug",
-                   "wanne_Karossiere_Holme_Lafette_Wanne",
-                   "wanne_Karossiere_Holme_Lafette_Motor_Motorposition",
-                   "wanne_Karossiere_Holme_Lafette_Wanne_Form_Kastenformig",
-                   "wanne_Karossiere_Holme_Lafette_Wanne_Form_Draufsicht_Bug",
-                   "wanne_Karossiere_Holme_Lafette_Wanne_Form_Draufsicht_Heck",
-                   "wanne_Karossiere_Holme_Lafette_Lucken",
-                   "wanne_Karossiere_Holme_Lafette_Motor_Motorposition_Hinten_Mitte", "result"]
+    def lime_explanation4user_data(self, arr):
 
         limeExplainer = LimeExplanation()
-
-        print(self.train)
-        limeExplainer.explainer(self.train, feature_names=headers[1:-1], class_names=['Bad', 'Good'])
+        limeExplainer.explainer(self.train, feature_names=self.header_list[1:-1], class_names=['Bad', 'Good'])
 
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
+        data_to_be_explained = numpy.array(arr)
+        exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=20)
 
-        exp = limeExplainer.explainInstance(self.test[0], predict_fn, num_features=20)
-        limeExplainer.save("landfahrzeug")
+        fig = exp.as_pyplot_figure()
+
+        fig.savefig("static/lime_explanation_images/landfahrzeug_explanation.png")
+        print("figure saved! and returning")
+        return fig

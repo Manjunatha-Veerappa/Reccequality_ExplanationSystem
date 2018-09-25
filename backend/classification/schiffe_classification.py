@@ -8,6 +8,19 @@ class SchiffeClassification(object):
 
     def __init__(self):
         self.classifer = None
+        self.headers_list = ["vectorName", "abmessungen_Breite", "uberwasserschiffe", "uberwasserschiffe_Rumpf_Rumpfart",
+                        "uberwasserschiffe_Rumpf_Bugformen", "uberwasserschiffe_Rumpf_Heckformen",
+                        "uberwasserschiffe_Rumpf",
+                        "uberwasserschiffe_Aufbauten", "unterwasserschiffe_Rumpform_Rohrenformig",
+                        "unterwasserschiffe_Bugformen_Abgerundet",
+                        "unterwasserschiffe_Bewaffnung", "verwendungszweck_Organistaion_Kampfschiff",
+                        "uberwasserschiffe_Einzelrumpf",
+                        "uberwasserschiffe_Aufbauten_Brucke", "uberwasserschiffe_Bewaffnung_Wasserbomben",
+                        "zusatzinformationen_Klasse",
+                        "uberwasserschiffe_Rumpf_Deckformen_Glattdecker",
+                        "uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl",
+                        "uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl",
+                        "uberwasserschiffe_Masten_Mittelschiff", "result"]
         self.schiffe_classifier_rules()
 
     def schiffe_classifier_rules(self):
@@ -18,14 +31,7 @@ class SchiffeClassification(object):
             count = 0
             for row in reader:
                 if (count == 0):
-                    headers_list = ["vectorName", "abmessungen_Breite", "uberwasserschiffe", "uberwasserschiffe_Rumpf_Rumpfart",
-                               "uberwasserschiffe_Rumpf_Bugformen", "uberwasserschiffe_Rumpf_Heckformen", "uberwasserschiffe_Rumpf",
-                               "uberwasserschiffe_Aufbauten", "unterwasserschiffe_Rumpform_Rohrenformig", "unterwasserschiffe_Bugformen_Abgerundet",
-                               "unterwasserschiffe_Bewaffnung", "verwendungszweck_Organistaion_Kampfschiff", "uberwasserschiffe_Einzelrumpf",
-                               "uberwasserschiffe_Aufbauten_Brucke", "uberwasserschiffe_Bewaffnung_Wasserbomben", "zusatzinformationen_Klasse",
-                               "uberwasserschiffe_Rumpf_Deckformen_Glattdecker", "uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl",
-                               "uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl", "uberwasserschiffe_Masten_Mittelschiff", "result"]
-                    writer.writerow(headers_list)
+                    writer.writerow(self.headers_list)
                     count += 1
                     continue
                 else:
@@ -118,24 +124,22 @@ class SchiffeClassification(object):
             print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
 
 
-    def lime_explanation(self):
-
-        headers = ["vectorName", "abmessungen_Breite", "uberwasserschiffe", "uberwasserschiffe_Rumpf_Rumpfart", "uberwasserschiffe_Rumpf_Bugformen", "uberwasserschiffe_Rumpf_Heckformen",
-                   "uberwasserschiffe_Rumpf", "uberwasserschiffe_Aufbauten", "unterwasserschiffe_Rumpform_Rohrenformig", "unterwasserschiffe_Bugformen_Abgerundet", "unterwasserschiffe_Bewaffnung",
-                   "verwendungszweck_Organistaion_Kampfschiff", "uberwasserschiffe_Einzelrumpf", "uberwasserschiffe_Aufbauten_Brucke", "uberwasserschiffe_Bewaffnung_Wasserbomben",
-                   "uberwasserschiffe_Rumpf_Deckformen_Glattdecker", "uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl",
-                   "uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl", "uberwasserschiffe_Masten_Mittelschiff", "result"]
-
+    def lime_explanation4user_data(self, arr):
 
         limeExplainer = LimeExplanation()
-
-        limeExplainer.explainer(self.train, feature_names=headers[1:-1], class_names=['Bad', 'Good'])
+        limeExplainer.explainer(self.train, feature_names=self.headers_list[1:-1], class_names=['Bad', 'Good'])
 
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
+        data_to_be_explained = numpy.array(arr)
+        print(data_to_be_explained)
+        exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=17)
 
+        fig = exp.as_pyplot_figure()
 
-        exp = limeExplainer.explainInstance(self.test[0], predict_fn, num_features=20)
-        limeExplainer.save("Schiffe")
+        fig.savefig("static/lime_explanation_images/schiffe_explanation.png")
+        print("figure saved! and returning")
+        return fig
+
 
 
 
