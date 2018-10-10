@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% include 'includes/_schiffenavbar.html' %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+
+    <div class="container" style="width:50%; float:left;border: 1px solid black;">
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <script src="/static/dashboard_js_files/schiffe/datasetPieChartJS.js"></script>
+
+{% endblock %}

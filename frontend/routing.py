@@ -96,6 +96,79 @@ def luftfahrzeug_dashboard():
     title = 'luftfahrzeug-dashboard'
     return render_template("dashboard/luftfahrzeug/datasetPieChart.html", title=title)
 
+@app.route("/landfahrzeug")
+def landfahrzeug():
+    title = 'landfahrzeug'
+    return render_template("landfahrzeug.html", title=title)
+
+@app.route("/landfahrzeug/classification")
+def landfahrzeug_classification():
+    title = 'landfahrzeug-classification'
+    classifier = LandfahrzeugClassification()
+    classifier.random_forest()
+    return render_template("classification/landfahrzeug_classification.html", title=title)
+
+@app.route("/landfahrzeug/explanation", methods=['GET', 'POST'])
+def landfahrzeug_explanation():
+    title = 'landfahrzeug-explanation'
+    try:
+        if(request.method == "POST"):
+
+            abmessungen_breite = int(request.form['abmessungen_breite'])
+
+            gezogenes_gerät = int(request.form['gezogenes_gerät'])
+
+            räder_achsen = int(request.form['räder_achsen'])
+
+            kettenfahrzeug = int(request.form['kettenfahrzeug'])
+
+            kettenlaufwerk = int(request.form['kettenlaufwerk'])
+
+            kettendetails = int(request.form['kettendetails'])
+
+            aufbau_turm_turmform = int(request.form['aufbau_turm_turmform'])
+
+            aufbau_turm_turmposition = int(request.form['aufbau_turm_turmposition'])
+
+            radfahrzeug = int(request.form['radfahrzeug'])
+
+            wanne_karossiere_holme_lafette_wanne = int(request.form['wanne_karossiere_holme_lafette_wanne'])
+
+            wanne_karossiere_holme_lafette_motor_motorposition = int(request.form['wanne_karossiere_holme_lafette_motor_motorposition'])
+
+            wanne_karossiere_lafette_wanne_form_kastenförmig = int(request.form['wanne_karossiere_lafette_wanne_form_kastenförmig'])
+
+            wanne_karossiere_lafette_wanne_form_draufsicht_bug = int(request.form['wanne_karossiere_lafette_wanne_form_draufsicht_bug'])
+
+            wanne_karossiere_lafette_wanne_form_draufsicht_heck = int(request.form['wanne_karossiere_lafette_wanne_form_draufsicht_heck'])
+
+            wanne_karossiere_holme_lafette_lucken = int(request.form['wanne_karossiere_holme_lafette_lucken'])
+
+            wanne_karossiere_motor_motorposition_hinten_mitte = int(request.form['wanne_karossiere_motor_motorposition_hinten_mitte'])
+
+
+            data = [abmessungen_breite, gezogenes_gerät, räder_achsen, kettenfahrzeug, kettenlaufwerk, kettendetails, aufbau_turm_turmform, aufbau_turm_turmposition, radfahrzeug,
+                    wanne_karossiere_holme_lafette_wanne, wanne_karossiere_holme_lafette_motor_motorposition, wanne_karossiere_lafette_wanne_form_kastenförmig,
+                    wanne_karossiere_lafette_wanne_form_draufsicht_bug, wanne_karossiere_lafette_wanne_form_draufsicht_heck, wanne_karossiere_holme_lafette_lucken,
+                    wanne_karossiere_motor_motorposition_hinten_mitte]
+
+            classifier = LandfahrzeugClassification()
+            classifier.random_forest()
+            img = classifier.lime_explanation4user_data(data)
+
+            return render_template("explanation/landfahrzeug_explanation.html", title=title, data=data, img=img)
+
+    except Exception as e:
+        flash(e)
+        return render_template("explanation/landfahrzeug_explanation.html", title=title)
+
+    return render_template("explanation/landfahrzeug_explanation.html", title=title)
+
+@app.route("/landfahrzeug/dashboard")
+def landfahrzeug_dashboard():
+    title = 'landfahrzeug-dashboard'
+    return render_template("dashboard/landfahrzeug/datasetPieChart.html", title=title)
+
 @app.route("/schiffe")
 def schiffe():
     title = 'Schiffe'
@@ -166,73 +239,10 @@ def schiffe_explanation():
 
     return render_template("explanation/schiffe_explanation.html", title=title)
 
-@app.route("/landfahrzeug")
-def landfahrzeug():
-    title = 'landfahrzeug'
-    return render_template("landfahrzeug.html", title=title)
-
-@app.route("/landfahrzeug/classification")
-def landfahrzeug_classification():
-    title = 'landfahrzeug-classification'
-    classifier = LandfahrzeugClassification()
-    classifier.random_forest()
-    return render_template("classification/landfahrzeug_classification.html", title=title)
-
-@app.route("/landfahrzeug/explanation", methods=['GET', 'POST'])
-def landfahrzeug_explanation():
-    title = 'landfahrzeug-explanation'
-    try:
-        if(request.method == "POST"):
-
-            abmessungen_breite = int(request.form['abmessungen_breite'])
-
-            gezogenes_gerät = int(request.form['gezogenes_gerät'])
-
-            räder_achsen = int(request.form['räder_achsen'])
-
-            kettenfahrzeug = int(request.form['kettenfahrzeug'])
-
-            kettenlaufwerk = int(request.form['kettenlaufwerk'])
-
-            kettendetails = int(request.form['kettendetails'])
-
-            aufbau_turm_turmform = int(request.form['aufbau_turm_turmform'])
-
-            aufbau_turm_turmposition = int(request.form['aufbau_turm_turmposition'])
-
-            radfahrzeug = int(request.form['radfahrzeug'])
-
-            wanne_karossiere_holme_lafette_wanne = int(request.form['wanne_karossiere_holme_lafette_wanne'])
-
-            wanne_karossiere_holme_lafette_motor_motorposition = int(request.form['wanne_karossiere_holme_lafette_motor_motorposition'])
-
-            wanne_karossiere_lafette_wanne_form_kastenförmig = int(request.form['wanne_karossiere_lafette_wanne_form_kastenförmig'])
-
-            wanne_karossiere_lafette_wanne_form_draufsicht_bug = int(request.form['wanne_karossiere_lafette_wanne_form_draufsicht_bug'])
-
-            wanne_karossiere_lafette_wanne_form_draufsicht_heck = int(request.form['wanne_karossiere_lafette_wanne_form_draufsicht_heck'])
-
-            wanne_karossiere_holme_lafette_lucken = int(request.form['wanne_karossiere_holme_lafette_lucken'])
-
-            wanne_karossiere_motor_motorposition_hinten_mitte = int(request.form['wanne_karossiere_motor_motorposition_hinten_mitte'])
-
-
-            data = [abmessungen_breite, gezogenes_gerät, räder_achsen, kettenfahrzeug, kettenlaufwerk, kettendetails, aufbau_turm_turmform, aufbau_turm_turmposition, radfahrzeug,
-                    wanne_karossiere_holme_lafette_wanne, wanne_karossiere_holme_lafette_motor_motorposition, wanne_karossiere_lafette_wanne_form_kastenförmig,
-                    wanne_karossiere_lafette_wanne_form_draufsicht_bug, wanne_karossiere_lafette_wanne_form_draufsicht_heck, wanne_karossiere_holme_lafette_lucken,
-                    wanne_karossiere_motor_motorposition_hinten_mitte]
-
-            classifier = LandfahrzeugClassification()
-            classifier.random_forest()
-            img = classifier.lime_explanation4user_data(data)
-
-            return render_template("explanation/landfahrzeug_explanation.html", title=title, data=data, img=img)
-
-    except Exception as e:
-        flash(e)
-        return render_template("explanation/landfahrzeug_explanation.html", title=title)
-
-    return render_template("explanation/landfahrzeug_explanation.html", title=title)
+@app.route("/schiffe/dashboard")
+def schiffe_dashboard():
+    title = 'schiffe-dashboard'
+    return render_template("dashboard/schiffe/datasetPieChart.html", title=title)
 
 if(__name__ == '__main__'):
     app.run(debug=True)
