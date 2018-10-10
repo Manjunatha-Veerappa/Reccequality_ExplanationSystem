@@ -3,7 +3,7 @@ $(document).ready(function(){
   console.log("Schiffe");
 
   $.ajax({
-   url:"/static/classification_files/SchiffeClassificationCategorical.csv",
+   url:"/static/classification_csv_files/SchiffeClassificationCategorical.csv",
    dataType:"text",
    success:function(data)
    {

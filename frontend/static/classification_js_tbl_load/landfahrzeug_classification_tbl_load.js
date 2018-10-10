@@ -3,7 +3,7 @@ $(document).ready(function(){
     console.log("luftfahrzeug");
 
   $.ajax({
-   url:"/static/classification_files/LandfahrzeugClassificationCategorical.csv",
+   url:"/static/classification_csv_files/LandfahrzeugClassificationCategorical.csv",
    dataType:"text",
    success:function(data)
    {

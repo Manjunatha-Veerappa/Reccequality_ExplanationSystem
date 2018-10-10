@@ -144,6 +144,7 @@
     </div>
 
     <div style="float: right; width:65%;">
+
         <div>
             <h4 style="text-align:center;">Explanation</h4>
             <hr/>
@@ -152,17 +153,24 @@
 
             <div align="center">
                 {% if img %}
-                    <p>image present</p>
                     <img src="/static/lime_explanation_images/luftfahrzeug_explanation.png" alt="limeExplanation" />
+                    <div>
+                        <p class="lead" style="text-align:center;">Click the explanation button for the detailed explanation of each attributes <a href="/static/lime_explanation_html/luftfahrzeugexplain.html" class="btn btn-info btn-lg">Explanation</a> </p>
+                    </div>
                 {% endif %}
             </div>
 
             <br>
         </div>
+
+        <!--
         <div id="limeExplanation" >
 
         </div>
+        -->
+
     </div>
+
     <div style="clear:both; font-size:1px;"></div>
 
 </div>

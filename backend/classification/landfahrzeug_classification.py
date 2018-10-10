@@ -20,7 +20,7 @@ class LandfahrzeugClassification(object):
         self.landfahrzueg_classifier_rules()
 
     def landfahrzueg_classifier_rules(self):
-        with open("static/dataset/Landfahrzeugdata.csv", 'r') as csvfile:
+        with open("static/datasetCSV/Landfahrzeugdata.csv", 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             writer = csv.writer(open("static/classification_csv_files/LandfahrzeugClassificationCategorical.csv", "w"))
             count = 0

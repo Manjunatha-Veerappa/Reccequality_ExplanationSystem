@@ -19,7 +19,7 @@ class LuftfahrzeugClassification(object):
         self.luftfahrzueg_classifier_rules()
 
     def luftfahrzueg_classifier_rules(self):
-        with open("static/dataset/Luftfahrzeugdata.csv", 'r') as csvfile:
+        with open("static/datasetCSV/Luftfahrzeugdata.csv", 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             writer = csv.writer(open("static/classification_csv_files/LuftfahrzeugClassificationCategorical.csv", "w"))
             count = 0

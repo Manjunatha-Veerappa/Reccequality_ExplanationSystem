@@ -24,7 +24,7 @@ class SchiffeClassification(object):
         self.schiffe_classifier_rules()
 
     def schiffe_classifier_rules(self):
-        with open("static/dataset/Schiffedata.csv", 'r') as csvfile:
+        with open("static/datasetCSV/Schiffedata.csv", 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             writer = csv.writer(open("static/classification_csv_files/SchiffeClassificationCategorical.csv", "w"))
             count = 0
@@ -120,7 +120,6 @@ class SchiffeClassification(object):
 
             print("Train Accuracy :: ", sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
             print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
-
 
     def lime_explanation4user_data(self, arr):
 
