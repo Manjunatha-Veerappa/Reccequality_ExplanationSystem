@@ -26,8 +26,7 @@ class SchiffeClassification(object):
     def schiffe_classifier_rules(self):
         with open("static/dataset/Schiffedata.csv", 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
-            writer = csv.writer(open("static/classification_files/SchiffeClassificationCategorical.csv", "w"))
-            data = []
+            writer = csv.writer(open("static/classification_csv_files/SchiffeClassificationCategorical.csv", "w"))
             count = 0
             for row in reader:
                 if (count == 0):
@@ -89,10 +88,9 @@ class SchiffeClassification(object):
 
                     writer.writerow(list)
 
-
     def random_forest(self):
         count = 0
-        with open("static/classification_files/SchiffeClassificationCategorical.csv", 'r') as csvfile:
+        with open("static/classification_csv_files/SchiffeClassificationCategorical.csv", 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             included_cols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19]
             data = []

@@ -22,8 +22,7 @@ class LandfahrzeugClassification(object):
     def landfahrzueg_classifier_rules(self):
         with open("static/dataset/Landfahrzeugdata.csv", 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
-            writer = csv.writer(open("static/classification_files/LandfahrzeugClassificationCategorical.csv", "w"))
-            data = []
+            writer = csv.writer(open("static/classification_csv_files/LandfahrzeugClassificationCategorical.csv", "w"))
             count = 0
             for row in reader:
                 if (count == 0):
@@ -85,7 +84,7 @@ class LandfahrzeugClassification(object):
 
     def random_forest(self):
         count = 0
-        with open("static/classification_files/LandfahrzeugClassificationCategorical.csv", 'r') as csvfile:
+        with open("static/classification_csv_files/LandfahrzeugClassificationCategorical.csv", 'r') as csvfile:
             reader = csv.reader(csvfile, delimiter=',')
             included_cols = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17]
             data = []
