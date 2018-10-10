@@ -15,16 +15,6 @@ def home():
     title = 'Home'
     return render_template("home.html", title=title)
 
-@app.route("/schiffe")
-def schiffe():
-    title = 'Schiffe'
-    return render_template("schiffe.html", title=title)
-
-@app.route("/landfahrzeug")
-def landfahrzeug():
-    title = 'landfahrzeug'
-    return render_template("landfahrzeug.html", title=title)
-
 @app.route("/luftfahrzeug")
 def luftfahrzeug():
     title = 'luftfahrzeug'
@@ -101,6 +91,16 @@ def luftfahrzeug_explanation():
 
     return render_template("explanation/luftfahrzeug_explanation.html", title=title)
 
+@app.route("/luftfahrzeug/dashboard")
+def luftfahrzeug_dashboard():
+    title = 'luftfahrzeug-dashboard'
+    return render_template("dashboard/luftfahrzeug/datasetPieChart.html", title=title)
+
+@app.route("/schiffe")
+def schiffe():
+    title = 'Schiffe'
+    return render_template("schiffe.html", title=title)
+
 @app.route("/schiffe/classification")
 def schiffe_classification():
     title = 'schiffe-classification'
@@ -165,6 +165,11 @@ def schiffe_explanation():
         return render_template("explanation/schiffe_explanation.html", title=title)
 
     return render_template("explanation/schiffe_explanation.html", title=title)
+
+@app.route("/landfahrzeug")
+def landfahrzeug():
+    title = 'landfahrzeug'
+    return render_template("landfahrzeug.html", title=title)
 
 @app.route("/landfahrzeug/classification")
 def landfahrzeug_classification():
