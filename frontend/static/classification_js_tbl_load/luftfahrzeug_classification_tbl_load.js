@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    console.log("luftfahrzeug");
+  console.log("luftfahrzeug");
 
   $.ajax({
    url:"/static/classification_csv_files/LuftfahrzeugClassificationCategorical.csv",
