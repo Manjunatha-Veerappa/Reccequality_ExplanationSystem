@@ -30,7 +30,7 @@ class LandfahrzeugClassification(object):
                     count += 1
                     continue
                 else:
-                    rule1, rule2, rule3, rule4, rule5, rule6 = 1, 1, 1, 1, 1, 1
+                    rule1, rule2, rule3, rule4, rule5, rule6, rule7 = 1, 1, 1, 1, 1, 1, 1
 
                     if (int(row[2114]) == 0):
                         if (int(row[1881]) == 0):
@@ -68,8 +68,10 @@ class LandfahrzeugClassification(object):
                     else:
                         rule6 = 0
 
+                    if (float(row[978]) > 0.5 and float(row[978]) < 10):
+                        rule7 = 0
 
-                    if (rule1 == 0 and rule2 == 0 and rule3 == 0 and rule4 == 0 and rule5 == 0 and rule6 == 0):
+                    if (rule1 == 0 and rule2 == 0 and rule3 == 0 and rule4 == 0 and rule5 == 0 and rule6 == 0 and rule7 == 0):
                         result = 1
                     else:
                         result = 0
