@@ -8,7 +8,7 @@ let pieChartData = {
     labels: ['Good data', 'Bad data'],
     datasets: [{
         label: ['Amount of good data','Amount of Bad data'],
-        data: [406, 329],
+        data: [405, 330],
         backgroundColor: [
             'rgba(75, 192, 192, 0.6)',
             'rgba(255, 159, 64, 0.6)'
