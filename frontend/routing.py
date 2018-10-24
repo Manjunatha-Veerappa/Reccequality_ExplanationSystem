@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, url_for, redirect, flash
-import time
+from flask import Flask, render_template, request, url_for, redirect, flash, jsonify, json
+from random import sample
 from flask_wtf import FlaskForm
 from wtforms import IntegerField, SelectField, SubmitField, validators, ValidationError, StringField, PasswordField
 from backend.classification.schiffe_classification import SchiffeClassification
@@ -8,6 +8,10 @@ from backend.classification.luftfahrzeug_classification import LuftfahrzeugClass
 
 app = Flask(__name__)
 app.secret_key = 'development key'
+
+luft_data = []
+land_data = []
+schiff_data = []
 
 @app.route("/")
 @app.route("/home")
@@ -75,21 +79,34 @@ def luftfahrzeug_explanation():
 
             drehflugler_triebwerk_position_uberdemRumpf_anzahl = int(request.form['drehflugler_triebwerk_position_uberdemRumpf_anzahl'])
 
-            data = [abmessungen_länge, starflügler, tragflächen, triebwerke, rumpf, leitwerk, drehflügler, drehflügler_rumpf_cockpit, doppeldecker, tragflächen_stellung_gerade, hochDecker,
+            user_data = [abmessungen_länge, starflügler, tragflächen, triebwerke, rumpf, leitwerk, drehflügler, drehflügler_rumpf_cockpit, doppeldecker, tragflächen_stellung_gerade, hochDecker,
                     triebwerke_triebwerksart, rumpf_rumpfformen, drehflügler_rotor, drehflügler_triebwerk, drehflügler_rumpf, drehflügler_heckausleger, drehflügler_triebwerk_lufteinlass,
                     drehflügler_triebwerk_luftauslass, drehflugler_rotor_einzelRotor_rotorblatter, drehflugler_triebwerk_position_uberdemRumpf_anzahl]
 
             classifier = LuftfahrzeugClassification()
             classifier.random_forest()
-            img = classifier.lime_explanation4user_data(data)
+            exp_list = classifier.lime_explanation4user_data(user_data)
+            labels_list = []
+            data_list = []
+            for i in range(len(exp_list)):
+                for j in range(1):
+                    labels_list.append(exp_list[i][j])
+                    data_list.append(exp_list[i][j + 1])
 
-            return render_template("explanation/luftfahrzeug_explanation.html", title=title, data=data, img=img)
+            luft_data.append(labels_list)
+            luft_data.append(data_list)
+
+            return render_template("explanation/luftfahrzeug_explanation.html", title=title, data=luft_data)
 
     except Exception as e:
         flash(e)
         return render_template("explanation/luftfahrzeug_explanation.html", title=title)
 
     return render_template("explanation/luftfahrzeug_explanation.html", title=title)
+
+@app.route("/luftfahrzeug_data")
+def luftfahrzeug_data():
+    return jsonify({'results' : luft_data})
 
 @app.route("/luftfahrzeug/dashboard")
 def luftfahrzeug_dashboard():
@@ -154,15 +171,28 @@ def landfahrzeug_explanation():
 
             classifier = LandfahrzeugClassification()
             classifier.random_forest()
-            img = classifier.lime_explanation4user_data(data)
+            exp_list = classifier.lime_explanation4user_data(data)
+            labels_list = []
+            data_list = []
+            for i in range(len(exp_list)):
+                for j in range(1):
+                    labels_list.append(exp_list[i][j])
+                    data_list.append(exp_list[i][j + 1])
 
-            return render_template("explanation/landfahrzeug_explanation.html", title=title, data=data, img=img)
+            land_data.append(labels_list)
+            land_data.append(data_list)
+
+            return render_template("explanation/landfahrzeug_explanation.html", title=title, data=land_data)
 
     except Exception as e:
         flash(e)
         return render_template("explanation/landfahrzeug_explanation.html", title=title)
 
     return render_template("explanation/landfahrzeug_explanation.html", title=title)
+
+@app.route("/landfahrzeug_data")
+def landfahrzeug_data():
+    return jsonify({'results' : land_data})
 
 @app.route("/landfahrzeug/dashboard")
 def landfahrzeug_dashboard():
@@ -229,9 +259,18 @@ def schiffe_explanation():
 
             classifier = SchiffeClassification()
             classifier.random_forest()
-            img = classifier.lime_explanation4user_data(data)
+            exp_list = classifier.lime_explanation4user_data(data)
+            labels_list = []
+            data_list = []
+            for i in range(len(exp_list)):
+                for j in range(1):
+                    labels_list.append(exp_list[i][j])
+                    data_list.append(exp_list[i][j + 1])
 
-            return render_template("explanation/schiffe_explanation.html", title=title, data=data, img=img)
+            schiff_data.append(labels_list)
+            schiff_data.append(data_list)
+
+            return render_template("explanation/schiffe_explanation.html", title=title, data=schiff_data)
 
     except Exception as e:
         flash(e)
@@ -243,6 +282,10 @@ def schiffe_explanation():
 def schiffe_dashboard():
     title = 'schiffe-dashboard'
     return render_template("dashboard/schiffe/datasetPieChart.html", title=title)
+
+@app.route("/schiffe_data")
+def schiffe_data():
+    return jsonify({'results' : schiff_data})
 
 if(__name__ == '__main__'):
     app.run(debug=True)

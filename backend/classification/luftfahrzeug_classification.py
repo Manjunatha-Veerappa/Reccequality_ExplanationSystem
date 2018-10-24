@@ -117,17 +117,34 @@ class LuftfahrzeugClassification(object):
               sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
         print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
 
-    def lime_explanation4user_data(self, arr):
+        print("length of the train data: ", len(self.train))
+        print("length of the test data: ", len(self.test))
 
+    def lime_explanation(self):
+        limeExplainer = LimeExplanation()
+        limeExplainer.explainer(self.train, feature_names=self.header_list[1:-1], class_names=['Bad', 'Good'])
+        predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
+        #for i in range(len(self.train)):
+            #exp = limeExplainer.explainInstance(self.train[i], predict_fn, num_features=20)
+            #print("list: ", i , " ", exp.as_list())
+        exp = limeExplainer.explainInstance(self.train[0], predict_fn, num_features=20)
+        attr_explain_list = exp.as_list()
+        for i in range(len(attr_explain_list)):
+            for j in range(1):
+                print(attr_explain_list[i][j], attr_explain_list[i][j+1])
+        return attr_explain_list
+
+    def lime_explanation4user_data(self, arr):
         limeExplainer = LimeExplanation()
         limeExplainer.explainer(self.train, feature_names=self.header_list[1:-1], class_names=['Bad', 'Good'])
 
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
         data_to_be_explained = numpy.array(arr)
         exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=20)
+        print("list: ",exp.as_list())
+        attr_explain_list = exp.as_list()
+        #fig = exp.as_pyplot_figure()
 
-        fig = exp.as_pyplot_figure()
-
-        fig.savefig("static/lime_explanation_images/luftfahrzeug_explanation.png")
-        print("figure saved! and returning")
-        return fig
+        #fig.savefig("static/lime_explanation_images/luftfahrzeug_explanation.png")
+        #print("figure saved! and returning")
+        return attr_explain_list

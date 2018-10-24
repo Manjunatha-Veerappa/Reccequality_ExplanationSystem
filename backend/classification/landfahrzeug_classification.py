@@ -125,9 +125,10 @@ class LandfahrzeugClassification(object):
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
         data_to_be_explained = numpy.array(arr)
         exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=20)
+        print("list: ", exp.as_list())
+        attr_explain_list = exp.as_list()
+        #fig = exp.as_pyplot_figure()
 
-        fig = exp.as_pyplot_figure()
-
-        fig.savefig("static/lime_explanation_images/landfahrzeug_explanation.png")
-        print("figure saved! and returning")
-        return fig
+        #fig.savefig("static/lime_explanation_images/landfahrzeug_explanation.png")
+        #print("figure saved! and returning")
+        return attr_explain_list

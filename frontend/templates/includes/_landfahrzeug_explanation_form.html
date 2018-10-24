@@ -118,11 +118,20 @@
             <h4 style="text-align:center;">Explanation</h4>
             <hr/>
 
-            <p style="text-align:center;">{{ data }}</p>
-
             <div align="center">
-                {% if img %}
-                    <img src="/static/lime_explanation_images/landfahrzeug_explanation.png" alt="limeExplanation" />
+                {% if data %}
+                    <!--<img src="/static/lime_explanation_images/landfahrzeug_explanation.png" alt="limeExplanation" />-->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+                    <!--<p style="text-align:center;">{{ data }}</p>-->
+
+                    <div class="container" style="width:100%; float:center;">
+                        <br>
+                        <canvas id="barChart"></canvas>
+                        <br>
+                    </div>
+
+                    <script src="/static/explanation_js_files/landfahrzeug/explanationBarChart.js"></script>
+
                     <div>
                         <p class="lead" style="text-align:center;">Click the explanation button for the detailed explanation of each attributes <a href="/static/lime_explanation_html/landfahrzeugexplain.html" class="btn btn-info btn-lg">Explanation</a> </p>
                     </div>
