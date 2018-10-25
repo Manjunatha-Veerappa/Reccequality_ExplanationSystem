@@ -113,12 +113,90 @@ let options = {
                     if(cell_data[cell_data.length - 1] == 0){
                         //Abmessungen Länge exception
                         if(cell_data[1] == -1 && cell_count == 1){
-                            table_data += '<td bgcolor="#FA8072">'+cell_data[cell_count]+'</td>';
+                            table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
                         }
-
+                        //Starrflugler exception
+                        else if(cell_data[2] == 0 && (cell_count == 3 || cell_count == 4 || cell_count == 5 || cell_count == 6)){
+                            if(cell_data[3] != 0 && cell_count == 3){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[4] != 0 && cell_count == 4){
+                                table_data += '<td style="color:red"">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[5] != 0 && cell_count == 5){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[6] != 0 && cell_count == 6){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //DoppelDecker exception
+                        else if(cell_data[9] == 0 && cell_count == 10){
+                            if(cell_data[10] != 0 && cell_count == 10){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Drehflugler exception
+                        else if(cell_data[7] == 0 && cell_count == 8){
+                            if(cell_data[8] != 0 && cell_count == 8){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Drehflugler exception (additional)
+                        else if(cell_data[7] == 0 && (cell_count == 7 || cell_count == 14 || cell_count == 15 || cell_count == 16 || cell_count == 17)){
+                            if(cell_data[14] != 0 && cell_count == 14){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[15] != 0 && cell_count == 15){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[16] != 0 && cell_count == 16){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[17] != 0 && cell_count == 17){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Hochdecker exception
+                        else if(cell_data[11] == 0 && (cell_count == 11 || cell_count == 3 || cell_count == 12 || cell_count == 13)){
+                            if(cell_data[3] != 0 && cell_count == 3){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[12] != 0 && cell_count == 12){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[13] != 0 && cell_count == 13){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Lufteinlass exception
+                        else if(cell_data[18] == 0 && cell_count == 19){
+                            if(cell_data[19] != 0 && cell_count == 19){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
                         else{
                             table_data += '<td>'+cell_data[cell_count]+'</td>';
                         }
+
                     }
                   }
                  }
