@@ -37,7 +37,7 @@ def luftfahrzeug_explanation():
     try:
         if(request.method == "POST"):
 
-            abmessungen_länge = int(request.form['abmessungen_länge'])
+            abmessungen_länge = float(request.form['abmessungen_länge'])
 
             starflügler = int(request.form['starflügler'])
 
@@ -131,7 +131,7 @@ def landfahrzeug_explanation():
     try:
         if(request.method == "POST"):
 
-            abmessungen_breite = int(request.form['abmessungen_breite'])
+            abmessungen_breite = float(request.form['abmessungen_breite'])
 
             gezogenes_gerät = int(request.form['gezogenes_gerät'])
 
@@ -216,7 +216,7 @@ def schiffe_explanation():
     title = 'schiffe-explanation'
     try:
         if (request.method == "POST"):
-            abmessungen_breite = int(request.form['abmessungen_breite'])
+            abmessungen_breite = float(request.form['abmessungen_breite'])
 
             uberwasserschiffe = int(request.form['uberwasserschiffe'])
 

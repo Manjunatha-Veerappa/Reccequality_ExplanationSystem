@@ -130,7 +130,7 @@ class SchiffeClassification(object):
         data_to_be_explained = numpy.array(arr)
         print(data_to_be_explained)
         exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=17)
-        print("list: ", exp.as_list())
+        exp.save_to_file("static/lime_explanation_html/Schiffeexplain.html")
         attr_explain_list = exp.as_list()
         #fig = exp.as_pyplot_figure()
 

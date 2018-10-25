@@ -1,5 +1,6 @@
 import matplotlib
 matplotlib.use('Agg')
+import os
 import matplotlib.pyplot as plt
 import csv
 import numpy
@@ -141,7 +142,8 @@ class LuftfahrzeugClassification(object):
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
         data_to_be_explained = numpy.array(arr)
         exp = limeExplainer.explainInstance(data_to_be_explained, predict_fn, num_features=20)
-        print("list: ",exp.as_list())
+        print(os.getcwd())
+        exp.save_to_file("static/lime_explanation_html/luftfahrzeugexplain.html")
         attr_explain_list = exp.as_list()
         #fig = exp.as_pyplot_figure()
 
