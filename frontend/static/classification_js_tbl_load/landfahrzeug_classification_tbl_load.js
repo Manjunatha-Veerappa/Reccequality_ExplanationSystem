@@ -21,7 +21,12 @@ $(document).ready(function(){
       }
       else
       {
-       table_data += '<td>'+cell_data[cell_count]+'</td>';
+       if(cell_count === 0){
+        table_data += '<td style="font-weight:bold">'+cell_data[cell_count]+'</td>';
+       }
+       else{
+        table_data += '<td>'+cell_data[cell_count]+'</td>';
+       }
       }
      }
      table_data += '</tr>';

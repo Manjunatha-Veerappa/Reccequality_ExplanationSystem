@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f27fbbd-3944-45b3-85b5-6433251c91e3" name="Default Changelist" comment="">
+    <list default="true" id="9f27fbbd-3944-45b3-85b5-6433251c91e3" name="Default Changelist" comment="changes in the data display on dashboard using pie slices for Schiffe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/classification/luftfahrzeug_classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/classification/luftfahrzeug_classification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/routing.py" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/routing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/dashboard_js_files/schiffe/datasetPieChartJS.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/dashboard_js_files/schiffe/datasetPieChartJS.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/static/lime_explanation_html/luftfahrzeugexplain.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/lime_explanation_html/luftfahrzeugexplain.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/landfahrzeug_classification_tbl_load.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/landfahrzeug_classification_tbl_load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/luftfahrzeug_classification_tbl_load.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/luftfahrzeug_classification_tbl_load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/schiffe_classification_tbl_load.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/schiffe_classification_tbl_load.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,18 +52,18 @@
         <counts>
           <entry key="dummy" value="39" />
           <entry key="html" value="4748" />
-          <entry key="js" value="2879" />
+          <entry key="js" value="2916" />
           <entry key="md" value="416" />
           <entry key="py" value="7552" />
-          <entry key="txt" value="979" />
+          <entry key="txt" value="995" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="4748" />
-          <entry key="JavaScript" value="2879" />
+          <entry key="JavaScript" value="2916" />
           <entry key="Markdown" value="416" />
-          <entry key="PLAIN_TEXT" value="1018" />
+          <entry key="PLAIN_TEXT" value="1034" />
           <entry key="Python" value="7552" />
         </counts>
       </usages-collector>
@@ -74,7 +72,7 @@
           <entry key="DEADJOE" value="1" />
           <entry key="csv" value="15" />
           <entry key="html" value="100" />
-          <entry key="js" value="23" />
+          <entry key="js" value="26" />
           <entry key="md" value="1" />
           <entry key="png" value="9" />
           <entry key="py" value="50" />
@@ -84,7 +82,7 @@
         <counts>
           <entry key="HTML" value="100" />
           <entry key="Image" value="9" />
-          <entry key="JavaScript" value="23" />
+          <entry key="JavaScript" value="26" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="16" />
           <entry key="Python" value="50" />
@@ -97,32 +95,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/templates/includes/_luftfahrzeug_explanation_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/templates/luftfahrzeug.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/classification/luftfahrzeug_classification.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -152,11 +124,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/routing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+            <state relative-caret-position="990">
+              <caret line="294" lean-forward="true" selection-start-line="294" selection-end-line="294" />
               <folding>
                 <element signature="e#0#90#0" expanded="true" />
                 <element signature="e#684#751#0" />
@@ -181,10 +153,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/templates/dashboard/landfahrzeug/datasetPieChart.html">
+        <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/luftfahrzeug_classification_tbl_load.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="106" selection-start-line="11" selection-start-column="106" selection-end-line="11" selection-end-column="106" />
+            <state relative-caret-position="420">
+              <caret line="28" column="8" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="28" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/landfahrzeug_classification_tbl_load.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/schiffe_classification_tbl_load.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="6" lean-forward="true" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -201,8 +191,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/static/dashboard_js_files/luftfahrzeug/datasetPieChartJS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="186" column="24" selection-start-line="186" selection-start-column="24" selection-end-line="194" selection-end-column="25" />
+            <state relative-caret-position="417">
+              <caret line="182" column="25" lean-forward="true" selection-start-line="182" selection-start-column="25" selection-end-line="182" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -261,10 +251,7 @@
         <option value="$PROJECT_DIR$/frontend/static/dashboard_js_files/luftfarhzeug/datasetPieChartJS.js" />
         <option value="$PROJECT_DIR$/frontend/templates/includes/_landfahrzeugnavbar.html" />
         <option value="$PROJECT_DIR$/frontend/templates/includes/_schiffenavbar.html" />
-        <option value="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/landfahrzeug_classification_tbl_load.js" />
-        <option value="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/schiffe_classification_tbl_load.js" />
         <option value="$PROJECT_DIR$/frontend/templates/includes/_luftfahrzeugnavbar.html" />
-        <option value="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/luftfahrzeug_classification_tbl_load.js" />
         <option value="$PROJECT_DIR$/frontend/templates/dashboard/luftfahrzeug/datasetPieChart.html" />
         <option value="$PROJECT_DIR$/frontend/templates/dashboard/landfahrzeug/datasetPieChart.html" />
         <option value="$PROJECT_DIR$/frontend/templates/dashboard/schiffe/datasetPieChart.html" />
@@ -284,6 +271,9 @@
         <option value="$PROJECT_DIR$/frontend/routing.py" />
         <option value="$PROJECT_DIR$/frontend/static/dashboard_js_files/landfahrzeug/datasetPieChartJS.js" />
         <option value="$PROJECT_DIR$/frontend/static/dashboard_js_files/schiffe/datasetPieChartJS.js" />
+        <option value="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/luftfahrzeug_classification_tbl_load.js" />
+        <option value="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/landfahrzeug_classification_tbl_load.js" />
+        <option value="$PROJECT_DIR$/frontend/static/classification_js_tbl_load/schiffe_classification_tbl_load.js" />
       </list>
     </option>
   </component>
@@ -315,12 +305,6 @@
             <path>
               <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
               <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="classification" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -328,6 +312,28 @@
               <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="classification_js_tbl_load" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard_js_files" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reccequality_ExplanationSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard_js_files" type="462c0819:PsiDirectoryNode" />
+              <item name="luftfahrzeug" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Reccequality_ExplanationSystem" type="b2602c69:ProjectViewProjectNode" />
@@ -658,7 +664,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541672379322</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="changes in the data display on dashboard using pie slices for Schiffe">
+      <created>1541675567014</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1541675567014</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TodoView">
@@ -765,7 +778,8 @@
     <MESSAGE value="changes in the data display on dashboard using pie slices for Luftfahrzeug" />
     <MESSAGE value="minor changes" />
     <MESSAGE value="changes in the data display on dashboard using pie slices for Landfahrzeug" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes in the data display on dashboard using pie slices for Landfahrzeug" />
+    <MESSAGE value="changes in the data display on dashboard using pie slices for Schiffe" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes in the data display on dashboard using pie slices for Schiffe" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/frontend/static/classification_csv_files/SchiffeClassificationCategorical.csv">
@@ -824,20 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/landfahrzeug_classification_tbl_load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/schiffe_classification_tbl_load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/templates/includes/_landfahrzeugnavbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -849,13 +849,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/luftfahrzeug_classification_tbl_load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1059,13 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/static/dashboard_js_files/luftfahrzeug/datasetPieChartJS.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="186" column="24" selection-start-line="186" selection-start-column="24" selection-end-line="194" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/static/dashboard_js_files/schiffe/datasetPieChartJS.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
@@ -1075,8 +1061,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/routing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+        <state relative-caret-position="990">
+          <caret line="294" lean-forward="true" selection-start-line="294" selection-end-line="294" />
           <folding>
             <element signature="e#0#90#0" expanded="true" />
             <element signature="e#684#751#0" />
@@ -1096,6 +1082,34 @@
             <element signature="e#12743#12852#0" />
             <element signature="e#12906#12947#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/static/dashboard_js_files/luftfahrzeug/datasetPieChartJS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="182" column="25" lean-forward="true" selection-start-line="182" selection-start-column="25" selection-end-line="182" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/luftfahrzeug_classification_tbl_load.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="8" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="28" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/landfahrzeug_classification_tbl_load.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/static/classification_js_tbl_load/schiffe_classification_tbl_load.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="6" lean-forward="true" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
         </state>
       </provider>
     </entry>
