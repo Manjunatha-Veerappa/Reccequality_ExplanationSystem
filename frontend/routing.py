@@ -22,6 +22,9 @@ def home():
 @app.route("/luftfahrzeug")
 def luftfahrzeug():
     title = 'luftfahrzeug'
+    #classifier = LuftfahrzeugClassification()
+    #classifier.random_forest()
+    #classifier.lime_explanation()
     return render_template("luftfahrzeug.html", title=title)
 
 @app.route("/luftfahrzeug/classification")

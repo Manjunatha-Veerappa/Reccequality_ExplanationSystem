@@ -91,7 +91,7 @@ let options = {
         else{
             console.log('Bad data has been selected')
             $.ajax({
-               url:"/static/classification_csv_files/LandfahrzeugClassificationCategorical.csv",
+               url:"/static/classification_csv_files/SchiffeClassificationCategorical.csv",
                dataType:"text",
                success:function(data)
                {
@@ -113,9 +113,59 @@ let options = {
                     if(cell_data[cell_data.length - 1] == 0){
                         //Abmessungen Länge exception
                         if(cell_data[1] == -1 && cell_count == 1){
-                            table_data += '<td bgcolor="#FA8072">'+cell_data[cell_count]+'</td>';
+                            table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
                         }
-
+                        //Überwasserschiffe exception
+                        else if(cell_data[2] == 0 && (cell_count == 3 || cell_count == 4 || cell_count == 5)){
+                            if(cell_data[3] != 0 && cell_count == 3){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[4] != 0 && cell_count == 4){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else if(cell_data[5] != 0 && cell_count == 5){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Rumpf exception
+                        else if(cell_data[6] == 0 && cell_count == 7){
+                            if(cell_data[7] != 0 && cell_count == 7){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Rohrenformig exception
+                        else if(cell_data[8] == 0 && cell_count == 9){
+                            if(cell_data[9] != 0 && cell_count == 9){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Bewaffnung exception
+                        else if((cell_data[10] == 0 && cell_count == 11) || (cell_data[14] == 0 && cell_count == 11)) {
+                            if(cell_data[11] != 0 && (cell_count == 11 || cell_count == 14)){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Einzelrumpf exception
+                        else if(cell_data[12] == 0 && cell_count == 13){
+                            if(cell_data[13] != 0 && cell_count == 13){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
                         else{
                             table_data += '<td>'+cell_data[cell_count]+'</td>';
                         }

@@ -128,12 +128,9 @@ class LuftfahrzeugClassification(object):
         #for i in range(len(self.train)):
             #exp = limeExplainer.explainInstance(self.train[i], predict_fn, num_features=20)
             #print("list: ", i , " ", exp.as_list())
-        exp = limeExplainer.explainInstance(self.train[0], predict_fn, num_features=20)
-        attr_explain_list = exp.as_list()
-        for i in range(len(attr_explain_list)):
-            for j in range(1):
-                print(attr_explain_list[i][j], attr_explain_list[i][j+1])
-        return attr_explain_list
+        for i in range(len(self.train)):
+            exp = limeExplainer.explainInstance(self.train[i], predict_fn, num_features=20)
+            print(i)
 
     def lime_explanation4user_data(self, arr):
         limeExplainer = LimeExplanation()
