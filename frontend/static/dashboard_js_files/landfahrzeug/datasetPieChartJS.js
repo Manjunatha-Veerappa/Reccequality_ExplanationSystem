@@ -113,9 +113,53 @@ let options = {
                     if(cell_data[cell_data.length - 1] == 0){
                         //Abmessungen Länge exception
                         if(cell_data[1] == -1 && cell_count == 1){
-                            table_data += '<td bgcolor="#FA8072">'+cell_data[cell_count]+'</td>';
+                            table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
                         }
-
+                        //gezogenes_Gerat exception
+                        else if(cell_data[2] == 0 && cell_count == 3){
+                            if(cell_data[3] != 0 && cell_count == 3){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //kettenfahrzeug exception
+                        else if(cell_data[4] == 0 && cell_data[5] == 0 && cell_count == 6){
+                            if(cell_data[6] != 0 && cell_count == 6){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //TurmForm exception
+                        else if(cell_data[7] == 0 && cell_count == 8){
+                            if(cell_data[8] != 0 && cell_count == 8){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //Wanne exception
+                        else if((cell_data[9] == 0 && cell_data[10] == 0) || (cell_data[4] == 0 && cell_data[10] == 0) && cell_count == 11){
+                            if(cell_data[11] != 0 && cell_count == 11){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
+                        //kastenförmig exception
+                        else if(cell_data[12] == 0 && cell_data[13] == 0 && cell_count == 14){
+                            if(cell_data[14] != 0 && cell_count == 14){
+                                table_data += '<td style="color:red">'+cell_data[cell_count]+'</td>';
+                            }
+                            else{
+                                table_data += '<td>'+cell_data[cell_count]+'</td>';
+                            }
+                        }
                         else{
                             table_data += '<td>'+cell_data[cell_count]+'</td>';
                         }
