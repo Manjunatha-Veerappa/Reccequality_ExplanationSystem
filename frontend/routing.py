@@ -12,6 +12,7 @@ app.secret_key = 'development key'
 luft_data = []
 land_data = []
 schiff_data = []
+luft_attr_counter = []
 
 @app.route("/")
 @app.route("/home")
@@ -22,9 +23,10 @@ def home():
 @app.route("/luftfahrzeug")
 def luftfahrzeug():
     title = 'luftfahrzeug'
-    #classifier = LuftfahrzeugClassification()
-    #classifier.random_forest()
-    #classifier.lime_explanation()
+    classifier = LuftfahrzeugClassification()
+    classifier.random_forest()
+    luft_attr_counter.append(classifier.lime_explanation())
+    print(luft_attr_counter)
     return render_template("luftfahrzeug.html", title=title)
 
 @app.route("/luftfahrzeug/classification")
@@ -114,7 +116,7 @@ def luftfahrzeug_data():
 @app.route("/luftfahrzeug/dashboard")
 def luftfahrzeug_dashboard():
     title = 'luftfahrzeug-dashboard'
-    return render_template("dashboard/luftfahrzeug/datasetPieChart.html", title=title)
+    return render_template("dashboard/luftfahrzeug/datasetPieChart.html", title=title, data=luft_attr_counter)
 
 @app.route("/landfahrzeug")
 def landfahrzeug():

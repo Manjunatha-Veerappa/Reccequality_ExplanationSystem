@@ -1,6 +1,8 @@
 import matplotlib
 matplotlib.use('Agg')
 import os
+import re
+import collections
 import matplotlib.pyplot as plt
 import csv
 import numpy
@@ -125,12 +127,25 @@ class LuftfahrzeugClassification(object):
         limeExplainer = LimeExplanation()
         limeExplainer.explainer(self.train, feature_names=self.header_list[1:-1], class_names=['Bad', 'Good'])
         predict_fn = lambda x: self.trained_model.predict_proba((x).astype(float))
-        #for i in range(len(self.train)):
-            #exp = limeExplainer.explainInstance(self.train[i], predict_fn, num_features=20)
-            #print("list: ", i , " ", exp.as_list())
-        for i in range(len(self.train)):
+        final_list = []
+        for i in range(len(self.train)):            #
             exp = limeExplainer.explainInstance(self.train[i], predict_fn, num_features=20)
+            exp_list = exp.as_list()
+            labels_list = []
             print(i)
+            for i in range(len(exp_list)):
+                for j in range(1):
+                    labels_list.append(exp_list[i][j])
+            m = re.sub("[^a-zA-Z]+", "", labels_list[0])
+            n = re.sub("[^a-zA-Z]+", "", labels_list[1])
+            o = re.sub("[^a-zA-Z]+", "", labels_list[2])
+            final_list.append(m)
+            final_list.append(n)
+            final_list.append(o)
+
+        self.luft_attr_counter = collections.Counter(final_list)
+        print(self.luft_attr_counter.most_common(5))
+        return self.luft_attr_counter.most_common(5)
 
     def lime_explanation4user_data(self, arr):
         limeExplainer = LimeExplanation()
