@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request, url_for, redirect, flash, jsonify, json
-from random import sample
-from flask_wtf import FlaskForm
-from wtforms import IntegerField, SelectField, SubmitField, validators, ValidationError, StringField, PasswordField
+from flask import Flask, render_template, request, url_for, redirect, flash, jsonify, json, session
+#from flask_wtf import FlaskForm
+#from wtforms import IntegerField, SelectField, SubmitField, validators, ValidationError, StringField, PasswordField
 from backend.classification.schiffe_classification import SchiffeClassification
 from backend.classification.landfahrzeug_classification import LandfahrzeugClassification
 from backend.classification.luftfahrzeug_classification import LuftfahrzeugClassification
@@ -17,16 +16,35 @@ luft_attr_counter = []
 @app.route("/")
 @app.route("/home")
 def home():
-    title = 'Home'
-    return render_template("home.html", title=title)
+    #title = 'Home'
+    if not session.get('logged_in'):
+        title = 'login'
+        return render_template("login.html", title=title)
+    else:
+        title = 'Home'
+        return render_template("home.html", title=title)
+
+@app.route('/login', methods=['POST'])
+def login():
+    if request.form['password'] == 'recce!quality':
+        session['logged_in'] = True
+    else:
+        error = 'Invalid password!'
+        return render_template("login.html", error=error)
+    return home()
+
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    return render_template("logout.html")
 
 @app.route("/luftfahrzeug")
 def luftfahrzeug():
     title = 'luftfahrzeug'
-    classifier = LuftfahrzeugClassification()
-    classifier.random_forest()
-    luft_attr_counter.append(classifier.lime_explanation())
-    print(luft_attr_counter)
+    #classifier = LuftfahrzeugClassification()
+    #classifier.random_forest()
+    #luft_attr_counter.append(classifier.lime_explanation())
+    #print(luft_attr_counter)
     return render_template("luftfahrzeug.html", title=title)
 
 @app.route("/luftfahrzeug/classification")

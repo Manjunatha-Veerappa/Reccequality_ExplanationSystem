@@ -1,12 +1,13 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    <div class="jumbotron text-center">
+
+    <div class="jumbotron text-center" id="content">
         <h1>Welcome To RecceQuality</h1>
         <p class="lead">This application is the focus for the "Explanation System"</p>
-        <a href="/schiffe" class="btn btn-info btn-lg">Domain Schiffe</a>
-        <a href="/landfahrzeug" class="btn btn-success btn-lg">Domain Landfahrzeug</a>
         <a href="/luftfahrzeug" class="btn btn-warning btn-lg">Domain Luftfahrzeug</a>
+        <a href="/landfahrzeug" class="btn btn-success btn-lg">Domain Landfahrzeug</a>
+        <a href="/schiffe" class="btn btn-info btn-lg">Domain Schiffe</a>
     </div>
 
 {% endblock %}

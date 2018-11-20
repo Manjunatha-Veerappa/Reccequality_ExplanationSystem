@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../ExplanationSystemReccemanNum/.idea/ExplanationSystemReccemanNum.iml" filepath="$PROJECT_DIR$/../ExplanationSystemReccemanNum/.idea/ExplanationSystemReccemanNum.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Reccequality_ExplanationSystem.iml" filepath="$PROJECT_DIR$/.idea/Reccequality_ExplanationSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../ladingwindow/.idea/ladingwindow.iml" filepath="$PROJECT_DIR$/../ladingwindow/.idea/ladingwindow.iml" />
     </modules>
   </component>
 </project>

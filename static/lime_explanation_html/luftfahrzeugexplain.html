@@ -35800,25 +35800,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divUSEZDAOXB39J52H"></div>
+        <div class="lime top_div" id="top_div6IV2FJ5EGY2ITV9"></div>
         
         <script>
-        var top_div = d3.select('#top_divUSEZDAOXB39J52H').classed('lime top_div', true);
+        var top_div = d3.select('#top_div6IV2FJ5EGY2ITV9').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["Bad", "Good"], [0.2, 0.8]);
+            var pp = new lime.PredictProba(pp_svg, ["Bad", "Good"], [0.3, 0.7]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["Bad", "Good"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["0.00 < hochDecker <= 1.00", 0.21720029485893927], ["0.00 < tragflachen_Stellung_Gerade <= 1.00", -0.21305254070855248], ["drehflugler > 0.00", 0.1480480862021041], ["drehflugler_Triebwerk_Lufteinlass > 0.00", 0.12808213490092216], ["abmessungen_Lange <= 13.20", -0.09772694576855698], ["drehflugler_Triebwerk_Luftauslass > 0.00", 0.09504935957932058], ["drehflugler_Rumpf > 0.00", 0.09314040258742727], ["0.00 < starrflugler <= 1.00", 0.07901766183909015], ["drehflugler_Rotor > 0.00", 0.056451598845249064], ["drehflugler_Heckausleger > 0.00", 0.022969806714765163], ["doppeldecker > 0.00", -0.018675397319076147], ["drehflugler_Rotor_EinzelRotor_Rotorblatter > -1.00", -0.008195000694187646], ["drehflugler_Triebwerk > 0.00", 0.0030314525714395728], ["drehflugler_Rumpf_Cockpit > 0.00", 0.0026319571617968566], ["leitwerk <= 1.00", 0.0], ["triebwerke_triebwerksart <= 1.00", 0.0], ["rumpf <= 1.00", 0.0], ["tragflachen <= 1.00", 0.0], ["rumpf_Rumpfformen <= 1.00", 0.0], ["triebwerke <= 1.00", 0.0]], 1, exp_div);
+                exp.show([["drehflugler_Triebwerk_Lufteinlass > 0.00", 0.27093834484462376], ["0.00 < hochDecker <= 1.00", 0.24521295147896333], ["0.00 < tragflachen_Stellung_Gerade <= 1.00", -0.18287412714832477], ["0.00 < starrflugler <= 1.00", 0.1341385138019789], ["drehflugler_Rumpf_Cockpit > 0.00", 0.08684909495316605], ["drehflugler_Rotor > 0.00", 0.08053960028393212], ["drehflugler_Heckausleger > 0.00", 0.07493607302521436], ["tragflachen > 1.00", -0.01455856530467864], ["doppeldecker > 0.00", -0.012835652266421894], ["drehflugler_Rotor_EinzelRotor_Rotorblatter > -1.00", 0.008905762267055776], ["drehflugler > 0.00", -0.008268547737743999], ["drehflugler_Triebwerk_Luftauslass > 0.00", 0.00692999439817233], ["13.15 < abmessungen_Lange <= 17.14", -0.0034120349328133595], ["drehflugler_Rumpf > 0.00", -0.002444522697697378], ["drehflugler_Triebwerk > 0.00", 0.00034062533548639366], ["leitwerk <= 1.00", 0.0], ["rumpf <= 1.00", 0.0], ["triebwerke <= 1.00", 0.0], ["triebwerke_triebwerksart <= 1.00", 0.0], ["rumpf_Rumpfformen <= 1.00", 0.0]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["hochDecker", "1.00", 0.21720029485893927], ["tragflachen_Stellung_Gerade", "1.00", -0.21305254070855248], ["drehflugler", "1.00", 0.1480480862021041], ["drehflugler_Triebwerk_Lufteinlass", "1.00", 0.12808213490092216], ["abmessungen_Lange", "12.00", -0.09772694576855698], ["drehflugler_Triebwerk_Luftauslass", "1.00", 0.09504935957932058], ["drehflugler_Rumpf", "1.00", 0.09314040258742727], ["starrflugler", "1.00", 0.07901766183909015], ["drehflugler_Rotor", "1.00", 0.056451598845249064], ["drehflugler_Heckausleger", "1.00", 0.022969806714765163], ["doppeldecker", "1.00", -0.018675397319076147], ["drehflugler_Rotor_EinzelRotor_Rotorblatter", "1.00", -0.008195000694187646], ["drehflugler_Triebwerk", "1.00", 0.0030314525714395728], ["drehflugler_Rumpf_Cockpit", "1.00", 0.0026319571617968566], ["leitwerk", "1.00", 0.0], ["triebwerke_triebwerksart", "1.00", 0.0], ["rumpf", "1.00", 0.0], ["tragflachen", "1.00", 0.0], ["rumpf_Rumpfformen", "1.00", 0.0], ["triebwerke", "1.00", 0.0]], 1, raw_div);
+            exp.show_raw_tabular([["drehflugler_Triebwerk_Lufteinlass", "1.00", 0.27093834484462376], ["hochDecker", "1.00", 0.24521295147896333], ["tragflachen_Stellung_Gerade", "1.00", -0.18287412714832477], ["starrflugler", "1.00", 0.1341385138019789], ["drehflugler_Rumpf_Cockpit", "1.00", 0.08684909495316605], ["drehflugler_Rotor", "1.00", 0.08053960028393212], ["drehflugler_Heckausleger", "1.00", 0.07493607302521436], ["tragflachen", "2.00", -0.01455856530467864], ["doppeldecker", "1.00", -0.012835652266421894], ["drehflugler_Rotor_EinzelRotor_Rotorblatter", "1.00", 0.008905762267055776], ["drehflugler", "1.00", -0.008268547737743999], ["drehflugler_Triebwerk_Luftauslass", "1.00", 0.00692999439817233], ["abmessungen_Lange", "13.50", -0.0034120349328133595], ["drehflugler_Rumpf", "1.00", -0.002444522697697378], ["drehflugler_Triebwerk", "1.00", 0.00034062533548639366], ["leitwerk", "1.00", 0.0], ["rumpf", "1.00", 0.0], ["triebwerke", "1.00", 0.0], ["triebwerke_triebwerksart", "1.00", 0.0], ["rumpf_Rumpfformen", "1.00", 0.0]], 1, raw_div);
         
         </script>
         </body></html>
