@@ -19,7 +19,6 @@ class LuftfahrzeugClassification(object):
                             "triebwerke_triebwerksart", "rumpf_Rumpfformen", "drehflugler_Rotor", "drehflugler_Triebwerk", "drehflugler_Rumpf",
                             "drehflugler_Heckausleger", "drehflugler_Triebwerk_Lufteinlass", "drehflugler_Triebwerk_Luftauslass",
                             "zusatzinformationen_Familie", "drehflugler_Rotor_EinzelRotor_Rotorblatter", "drehflugler_Triebwerk_Position_UberdemRumpf_Anzahl", "result"]
-        self.luftfahrzueg_classifier_rules()
 
     def luftfahrzueg_classifier_rules(self):
         with open("static/datasetCSV/Luftfahrzeugdata.csv", 'r') as csvfile:
@@ -113,15 +112,15 @@ class LuftfahrzeugClassification(object):
 
         predictions = self.trained_model.predict(self.test)
 
-        for i in range(0, 10):
-            print("Actual outcome :: {} and Predicted outcome :: {}".format(list(self.labels_test)[i], predictions[i]))
+        #for i in range(0, 10):
+            #print("Actual outcome :: {} and Predicted outcome :: {}".format(list(self.labels_test)[i], predictions[i]))
 
-        print("Train Accuracy :: ",
-              sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
+        print("Train Accuracy :: ", sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
         print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
 
-        print("length of the train data: ", len(self.train))
-        print("length of the test data: ", len(self.test))
+        #print("length of the train data: ", len(self.train))
+        #print("length of the test data: ", len(self.test))
+
 
     def lime_explanation(self):
         limeExplainer = LimeExplanation()

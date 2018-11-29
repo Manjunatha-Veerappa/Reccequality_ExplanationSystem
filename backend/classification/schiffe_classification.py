@@ -21,7 +21,6 @@ class SchiffeClassification(object):
                         "uberwasserschiffe_Aufbauten_AufbautenLange_Langer_als_1_3_der_Schiffslange_Gesamtanzahl",
                         "uberwasserschiffe_Schornsteine_Abgasoffnungen_Gesamtanzahl",
                         "uberwasserschiffe_Masten_Mittelschiff", "result"]
-        self.schiffe_classifier_rules()
 
     def schiffe_classifier_rules(self):
         with open("static/datasetCSV/Schiffedata.csv", 'r') as csvfile:
@@ -114,9 +113,6 @@ class SchiffeClassification(object):
             self.trained_model = self.classifier.random_forest_classifier(train, self.labels_train)
 
             predictions = self.trained_model.predict(self.test)
-
-            for i in range(0, 10):
-                print("Actual outcome :: {} and Predicted outcome :: {}".format(list(self.labels_test)[i], predictions[i]))
 
             print("Train Accuracy :: ", sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
             print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))

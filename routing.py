@@ -41,17 +41,13 @@ def logout():
 @app.route("/luftfahrzeug")
 def luftfahrzeug():
     title = 'luftfahrzeug'
-    #classifier = LuftfahrzeugClassification()
-    #classifier.random_forest()
-    #luft_attr_counter.append(classifier.lime_explanation())
-    #print(luft_attr_counter)
     return render_template("luftfahrzeug.html", title=title)
 
 @app.route("/luftfahrzeug/classification")
 def luftfahrzeug_classification():
     title = 'luftfahrzeug-classification'
     classifier = LuftfahrzeugClassification()
-    classifier.random_forest()
+    classifier.luftfahrzueg_classifier_rules()
     return render_template("classification/luftfahrzeug_classification.html", title=title)
 
 @app.route("/luftfahrzeug/explanation", methods=['GET', 'POST'])
@@ -107,6 +103,7 @@ def luftfahrzeug_explanation():
                     drehflügler_triebwerk_luftauslass, drehflugler_rotor_einzelRotor_rotorblatter, drehflugler_triebwerk_position_uberdemRumpf_anzahl]
 
             classifier = LuftfahrzeugClassification()
+            classifier.luftfahrzueg_classifier_rules()
             classifier.random_forest()
             exp_list = classifier.lime_explanation4user_data(user_data)
             labels_list = []
@@ -145,7 +142,7 @@ def landfahrzeug():
 def landfahrzeug_classification():
     title = 'landfahrzeug-classification'
     classifier = LandfahrzeugClassification()
-    classifier.random_forest()
+    classifier.landfahrzueg_classifier_rules()
     return render_template("classification/landfahrzeug_classification.html", title=title)
 
 @app.route("/landfahrzeug/explanation", methods=['GET', 'POST'])
@@ -231,7 +228,7 @@ def schiffe():
 def schiffe_classification():
     title = 'schiffe-classification'
     classifier = SchiffeClassification()
-    classifier.random_forest()
+    classifier.schiffe_classifier_rules()
     return render_template("classification/schiffe_classification.html", title=title)
 
 @app.route("/schiffe/explanation", methods=['GET', 'POST'])

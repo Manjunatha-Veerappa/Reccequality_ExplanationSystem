@@ -17,7 +17,6 @@ class LandfahrzeugClassification(object):
                        "wanne_Karossiere_Holme_Lafette_Wanne_Form_Draufsicht_Heck", "zusatzinformationen_Familie", \
                        "wanne_Karossiere_Holme_Lafette_Lucken",
                        "wanne_Karossiere_Holme_Lafette_Motor_Motorposition_Hinten_Mitte", "result"]
-        self.landfahrzueg_classifier_rules()
 
     def landfahrzueg_classifier_rules(self):
         with open("static/datasetCSV/Landfahrzeugdata.csv", 'r') as csvfile:
@@ -110,9 +109,6 @@ class LandfahrzeugClassification(object):
         self.trained_model = self.classifier.random_forest_classifier(train, self.labels_train)
 
         predictions = self.trained_model.predict(self.test)
-
-        for i in range(0, 10):
-            print("Actual outcome :: {} and Predicted outcome :: {}".format(list(self.labels_test)[i], predictions[i]))
 
         print("Train Accuracy :: ", sklearn.metrics.accuracy_score(self.labels_train, self.trained_model.predict(train)))
         print("Test Accuracy  :: ", sklearn.metrics.accuracy_score(self.labels_test, predictions))
